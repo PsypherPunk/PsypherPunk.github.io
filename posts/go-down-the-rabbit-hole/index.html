@@ -36,9 +36,10 @@ However, while writing my last blog post I ran into a problem. Originally writte
 <meta property="og:title" content="🐛 Go Down the Rabbit Hole" />
 <meta property="og:description" content="On the em-dash, static site generators, Go and why you should really RTFM." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.psypherpunk.io/posts/go-down-the-rabbit-hole/" />
-<meta property="article:published_time" content="2019-02-13T10:47:46+00:00" />
-<meta property="article:modified_time" content="2019-02-13T10:47:46+00:00" />
+<meta property="og:url" content="https://blog.psypherpunk.io/posts/go-down-the-rabbit-hole/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-02-13T10:47:46&#43;00:00" />
+<meta property="article:modified_time" content="2019-02-13T10:47:46&#43;00:00" />
+
 
 
 
@@ -181,7 +182,7 @@ require <span style="color:#f92672">(</span>
 &lt;p&gt;This is a sentence—&lt;em&gt;here<span style="color:#e6db74">&#39;s an italicised aside&lt;/em&gt;—and here&#39;</span>s the end.&lt;/p&gt;
 </code></pre></div><p>Oh fudge.</p>
 <h3 id="debugging">Debugging</h3>
-<p>For the purposes of this experiment, I&rsquo;m running Jetbrains&rsquo; <a href="https://www.jetbrains.com/go/">GoLand</a>. Thankfully their tooling caters to the likes of myself and their debug settings kindly inform me that I need to run <a href="https://github.com/go-delve/delve"><code>delve</code></a>, apparently.</p>
+<p>For the purposes of this experiment, I&rsquo;m running Jetbrains' <a href="https://www.jetbrains.com/go/">GoLand</a>. Thankfully their tooling caters to the likes of myself and their debug settings kindly inform me that I need to run <a href="https://github.com/go-delve/delve"><code>delve</code></a>, apparently.</p>
 <p><img src="/img/run-debug-configurations-059.png" alt="GoLand Run/Debug Configuration"></p>
 <p>Following those useful instructions, we recompile Hugo with the information provided:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go install -gcflags <span style="color:#e6db74">&#34;all=-N -l&#34;</span>

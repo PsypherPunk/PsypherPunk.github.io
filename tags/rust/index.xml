@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rust on psypherpunk</title>
+    
+    
+    
+    <link>https://blog.psypherpunk.io/tags/rust/</link>
+    <description>Recent content in rust on psypherpunk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>© 2019 PsypherPunk</copyright>
+    <lastBuildDate>Mon, 18 Nov 2019 14:27:44 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.psypherpunk.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>💾 Jargon</title>
+      <link>https://blog.psypherpunk.io/posts/jargon/</link>
+      <pubDate>Mon, 18 Nov 2019 14:27:44 +0000</pubDate>
+      
+      <guid>https://blog.psypherpunk.io/posts/jargon/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          …or *&#34;Nostalgia and a free hour are a bad combination.&#34;*
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

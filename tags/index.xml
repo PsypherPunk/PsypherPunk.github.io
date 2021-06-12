@@ -10,10 +10,50 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>© 2019 PsypherPunk</copyright>
-    <lastBuildDate>Wed, 19 Jun 2019 20:19:51 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 18 Nov 2019 14:27:44 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.psypherpunk.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>jargon</title>
+      <link>https://blog.psypherpunk.io/tags/jargon/</link>
+      <pubDate>Mon, 18 Nov 2019 14:27:44 +0000</pubDate>
+      
+      <guid>https://blog.psypherpunk.io/tags/jargon/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>rust</title>
+      <link>https://blog.psypherpunk.io/tags/rust/</link>
+      <pubDate>Mon, 18 Nov 2019 14:27:44 +0000</pubDate>
+      
+      <guid>https://blog.psypherpunk.io/tags/rust/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>owasp</title>

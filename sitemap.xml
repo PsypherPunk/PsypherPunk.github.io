@@ -1,95 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://blog.psypherpunk.io/posts/</loc>
-    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.psypherpunk.io/</loc>
-    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.psypherpunk.io/posts/jargon/</loc>
-    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://blog.psypherpunk.io/categories/</loc>
-    <lastmod>2019-06-19T20:19:51+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.psypherpunk.io/tags/jargon/</loc>
+    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.psypherpunk.io/posts/</loc>
+    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.psypherpunk.io/</loc>
+    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.psypherpunk.io/tags/rust/</loc>
+    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.psypherpunk.io/categories/rust/</loc>
+    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.psypherpunk.io/tags/</loc>
+    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.psypherpunk.io/posts/jargon/</loc>
+    <lastmod>2019-11-18T14:27:44+00:00</lastmod>
+  </url><url>
     <loc>https://blog.psypherpunk.io/tags/owasp/</loc>
     <lastmod>2019-06-19T20:19:51+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/tags/security/</loc>
     <lastmod>2019-06-19T20:19:51+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/categories/security/</loc>
     <lastmod>2019-06-19T20:19:51+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.psypherpunk.io/tags/</loc>
-    <lastmod>2019-06-19T20:19:51+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/posts/hack-the-shed/</loc>
     <lastmod>2019-06-19T20:19:51+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/tags/go/</loc>
     <lastmod>2019-02-13T10:47:46+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/categories/go/</loc>
     <lastmod>2019-02-13T10:47:46+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/tags/markdown/</loc>
     <lastmod>2019-02-13T10:47:46+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/posts/go-down-the-rabbit-hole/</loc>
     <lastmod>2019-02-13T10:47:46+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/tags/django/</loc>
     <lastmod>2018-08-29T22:28:56+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/tags/python/</loc>
     <lastmod>2018-08-29T22:28:56+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/categories/python/</loc>
     <lastmod>2018-08-29T22:28:56+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/posts/django-pwny/</loc>
     <lastmod>2018-08-29T22:28:56+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.psypherpunk.io/posts/hello-world/</loc>
     <lastmod>2018-08-15T21:10:44+01:00</lastmod>
   </url>
-  
 </urlset>

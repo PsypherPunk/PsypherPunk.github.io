@@ -36,9 +36,10 @@ We recently ran a Capture the Flag (CTF) event at my workplace. For anyone unfam
 <meta property="og:title" content="🔓 Hack the Shed" />
 <meta property="og:description" content="Drink all the booze; hack all the things." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.psypherpunk.io/posts/hack-the-shed/" />
-<meta property="article:published_time" content="2019-06-19T20:19:51+01:00" />
-<meta property="article:modified_time" content="2019-06-19T20:19:51+01:00" />
+<meta property="og:url" content="https://blog.psypherpunk.io/posts/hack-the-shed/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-06-19T20:19:51&#43;01:00" />
+<meta property="article:modified_time" content="2019-06-19T20:19:51&#43;01:00" />
+
 
 
 
@@ -327,12 +328,12 @@ from the Juice Shop. Thankfully, there&rsquo;s a nice tool,
 <a href="https://www.npmjs.com/package/juice-shop-ctf-cli">juice-shop-ctf-cli</a> created
 for just this purpose. There&rsquo;s some configuration but I created a <code>ctfd.yaml</code>
 file with the various options:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">ctfFramework</span>: CTFd <span style="color:#ae81ff">2.</span>x
-<span style="color:#66d9ef">juiceShopUrl</span>: https://juice-shop.herokuapp.com
-<span style="color:#66d9ef">ctfKey</span>: Kjrcvim78J5MLR6a7zoaSO73LZJoSWDB
-<span style="color:#66d9ef">countryMapping</span>: https://raw.githubusercontent.com/bkimminich/juice-shop/master/config/fbctf.yml
-<span style="color:#66d9ef">insertHints</span>: paid
-<span style="color:#66d9ef">insertHintUrls</span>: paid
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">ctfFramework</span>: <span style="color:#ae81ff">CTFd 2.x</span>
+<span style="color:#f92672">juiceShopUrl</span>: <span style="color:#ae81ff">https://juice-shop.herokuapp.com</span>
+<span style="color:#f92672">ctfKey</span>: <span style="color:#ae81ff">Kjrcvim78J5MLR6a7zoaSO73LZJoSWDB</span>
+<span style="color:#f92672">countryMapping</span>: <span style="color:#ae81ff">https://raw.githubusercontent.com/bkimminich/juice-shop/master/config/fbctf.yml</span>
+<span style="color:#f92672">insertHints</span>: <span style="color:#ae81ff">paid</span>
+<span style="color:#f92672">insertHintUrls</span>: <span style="color:#ae81ff">paid</span>
 </code></pre></div><p>After which you can use the <code>juice-shop-ctf-cli</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install -g juice-shop-ctf-cli
 juice-shop-ctf --config ctfd.yaml

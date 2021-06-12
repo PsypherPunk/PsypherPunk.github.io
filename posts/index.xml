@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>© 2019 PsypherPunk</copyright>
-    <lastBuildDate>Wed, 19 Jun 2019 20:19:51 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 18 Nov 2019 14:27:44 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.psypherpunk.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>💾 Jargon</title>
+      <link>https://blog.psypherpunk.io/posts/jargon/</link>
+      <pubDate>Mon, 18 Nov 2019 14:27:44 +0000</pubDate>
+      
+      <guid>https://blog.psypherpunk.io/posts/jargon/</guid>
+      <description>Jargon, do you grok it? I recently had a weird conversation on Teams (yes, we use Microsoft Teams at work; don&amp;rsquo;t judge us); triggered by a question in a recent Postman user-survey, it prompted a discussion around &amp;ldquo;unique terminology&amp;rdquo; in sofware development and to what degree each of us had been exposed.
+Not long after, I ended up referencing a phase of the moon issue with a colleague, with regard to some particularly erratic behaviour we were seeing.</description>
+    </item>
     
     <item>
       <title>🔓 Hack the Shed</title>

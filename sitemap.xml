@@ -19,6 +19,9 @@
         <loc>https://blog.psypherpunk.io/categories/security/</loc>
     </url>
     <url>
+        <loc>https://blog.psypherpunk.io/categories/ssg/</loc>
+    </url>
+    <url>
         <loc>https://blog.psypherpunk.io/django-pwny/</loc>
         <lastmod>2018-08-29</lastmod>
     </url>
@@ -33,6 +36,10 @@
     <url>
         <loc>https://blog.psypherpunk.io/hello-world/</loc>
         <lastmod>2018-08-15</lastmod>
+    </url>
+    <url>
+        <loc>https://blog.psypherpunk.io/hugo-to-zola/</loc>
+        <lastmod>2021-06-12</lastmod>
     </url>
     <url>
         <loc>https://blog.psypherpunk.io/jargon/</loc>
@@ -64,5 +71,8 @@
     </url>
     <url>
         <loc>https://blog.psypherpunk.io/tags/security/</loc>
+    </url>
+    <url>
+        <loc>https://blog.psypherpunk.io/tags/ssg/</loc>
     </url>
 </urlset>

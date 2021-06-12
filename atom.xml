@@ -4,8 +4,167 @@
 	<link href="https://blog.psypherpunk.io/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://blog.psypherpunk.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2019-11-18T00:00:00+00:00</updated>
+	<updated>2021-06-12T00:00:00+00:00</updated>
 	<id>https://blog.psypherpunk.io/atom.xml</id>
+	<entry xml:lang="en">
+		<title>🪧 From Hugo to Zola</title>
+		<published>2021-06-12T00:00:00+00:00</published>
+		<updated>2021-06-12T00:00:00+00:00</updated>
+		<link href="https://blog.psypherpunk.io/hugo-to-zola/" type="text/html"/>
+		<id>https://blog.psypherpunk.io/hugo-to-zola/</id>
+		<content type="html">&lt;h2 id=&quot;why-are-we-here-again&quot;&gt;Why Are We Here Again?&lt;&#x2F;h2&gt;
+&lt;p&gt;While I outlined my earlier selection of Hugo as the static-site-generator of
+choice in a &lt;a href=&quot;https:&#x2F;&#x2F;blog.psypherpunk.io&#x2F;go-down-the-rabbit-hole&#x2F;&quot;&gt;previous post&lt;&#x2F;a&gt;, it&#x27;s finally time
+to admit that Go and I aren&#x27;t getting on. It&#x27;s not you, it&#x27;s me (except it&#x27;s
+totally you.)&lt;&#x2F;p&gt;
+&lt;p&gt;And it&#x27;s more than a little Rust, to be honest.&lt;&#x2F;p&gt;
+&lt;p&gt;So, having failed miserably to write anything actually worth publishing (which
+does sound like rather a grandious overestimation of my previous posts) in over
+eighteen months, it&#x27;s time to do what we all do and change the underlying
+framework so I can hack around and then then
+&lt;a href=&quot;https:&#x2F;&#x2F;www.theolognion.com&#x2F;programmer-starts-a-blog-doesnt-write-about-their-static-site-generator-setup-in-the-first-post&#x2F;&quot;&gt;write about it&lt;&#x2F;a&gt;
+in a weird, meta fashion.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;zola-i-missed-you-sort-of&quot;&gt;Zola, I Missed You (Sort of.)&lt;&#x2F;h2&gt;
+&lt;p&gt;Back to &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;Zola&lt;&#x2F;a&gt;! My initial choice first time around,
+before becoming inexplicably over-optimistic regarding Go, I&#x27;ve been toying with
+the shift for far too long so back we went…&lt;&#x2F;p&gt;
+&lt;p&gt;It was a, shall we say, &lt;em&gt;inauspicious&lt;&#x2F;em&gt; start.&lt;&#x2F;p&gt;
+&lt;p&gt;I followed the
+&lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;getting-started&#x2F;overview&#x2F;#first-steps-with-zola&quot;&gt;&lt;em&gt;First Steps with Zola&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;
+documentation to the letter, I swear.&lt;&#x2F;p&gt;
+&lt;p&gt;I ran &lt;code&gt;zola init…&lt;&#x2F;code&gt;, created my &lt;code&gt;first.md&lt;&#x2F;code&gt; and &lt;code&gt;second.md&lt;&#x2F;code&gt; blog posts, populated
+my &lt;code&gt;templates&lt;&#x2F;code&gt; but…it didn&#x27;t work.&lt;&#x2F;p&gt;
+&lt;p&gt;Running &lt;code&gt;zola serve&lt;&#x2F;code&gt; span up the local webserver, rendering &lt;code&gt;&#x2F;blogs&lt;&#x2F;code&gt;; visiting
+&lt;code&gt;&#x2F;blogs&#x2F;first&lt;&#x2F;code&gt; showed the contents of the relevant post perfectly well. But
+links to the latter were not appearing in the former.&lt;&#x2F;p&gt;
+&lt;p&gt;Specifically, in this bit of the &lt;code&gt;blog.html&lt;&#x2F;code&gt; content:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-tera&quot; data-lang=&quot;tera&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;  {% for page in section.pages %}
+  &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;{{ page.permalink | safe }}&amp;quot;&amp;gt;{{ page.title }}&amp;lt;&#x2F;a&amp;gt;&amp;lt;&#x2F;li&amp;gt;
+  {% endfor %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…the &lt;code&gt;section.pages&lt;&#x2F;code&gt; variable was empty. Displaying the contents with
+&lt;code&gt;{{ section.pages }}&lt;&#x2F;code&gt; gave nothing more than a disheartening &lt;code&gt;[]&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;d love to say I got to the bottom of it but alas, no. After repeated
+copy-and-pastes of the documentation my list of blogs remained empty. I&#x27;ll
+probably repeat the exercise and either log a bug or confirm my ineptitude
+when I&#x27;m done documenting the latter here.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“If at first you don’t succeed, try, try again. And then give up. There’s no
+sense being a damn fool about it.”&lt;&#x2F;em&gt;&lt;br &#x2F;&gt;
+–Mark Twain&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Taking a different approach and stripping back the metadata in each file, Zola
+thankfully started complaining about missing templates and the resulting errors
+largely hand-held me through the necessary additions.&lt;&#x2F;p&gt;
+&lt;p&gt;The standard templates are documented in the
+&lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;templates&#x2F;overview&#x2F;#standard-templates&quot;&gt;relevant section of the documentation&lt;&#x2F;a&gt;
+and, after adding those (rather than those described in the &lt;em&gt;Overview&lt;&#x2F;em&gt;
+documentation), voilà: our section began presenting the expected list of pages.&lt;&#x2F;p&gt;
+&lt;p&gt;To implement a site structurally like its predecessor, the only templates
+specifically required were &lt;code&gt;index.html&lt;&#x2F;code&gt; (to cover the home-page; functionally
+this is a section page but as we&#x27;ve no other sections, the main page fulfils
+that role) and &lt;code&gt;page.html&lt;&#x2F;code&gt; (to cover the individual blog posts.)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;to-theme-or-not-to-theme&quot;&gt;To Theme or Not to Theme?&lt;&#x2F;h2&gt;
+&lt;p&gt;I will not use &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;themes&#x2F;zola-386&#x2F;&quot;&gt;&lt;em&gt;ZOLA.386&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;; I will not
+use &lt;em&gt;ZOLA.386&lt;&#x2F;em&gt;…&lt;&#x2F;p&gt;
+&lt;p&gt;I really want to use &lt;em&gt;ZOLA.386&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll admit that the &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;themes&#x2F;&quot;&gt;themes available for Zola&lt;&#x2F;a&gt;
+aren&#x27;t as many an multifarious as those of Hugo but they nevertheless cover
+most simple requirements.&lt;&#x2F;p&gt;
+&lt;p&gt;That said, I opted to implement the templates from scratch manually using
+&lt;a href=&quot;https:&#x2F;&#x2F;getbootstrap.com&#x2F;docs&#x2F;5.0&#x2F;getting-started&#x2F;introduction&#x2F;&quot;&gt;Bootstrap 5&lt;&#x2F;a&gt;.
+More specifically, using one of the &lt;a href=&quot;https:&#x2F;&#x2F;bootswatch.com&#x2F;&quot;&gt;Bootswatch&lt;&#x2F;a&gt;
+themes: &lt;a href=&quot;https:&#x2F;&#x2F;bootswatch.com&#x2F;sketchy&#x2F;&quot;&gt;&lt;em&gt;Sketchy&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;. Hopefully, that should be
+clear to anyone reading this. Unless I&#x27;ve gone and changed my mind again.&lt;&#x2F;p&gt;
+&lt;p&gt;Partly, I was intrigued as to how simple it would be (spoilers: quite simple)
+and how quickly I could replace the existing site.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve been discussing the possibility of replacing an existing Wordpress site
+elsewhere with a GitHub-hosted static site à la this one and wanted a feel for
+the effort involved (spoilers: not a lot.)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-actual-hard-work&quot;&gt;The Actual Hard Work&lt;&#x2F;h2&gt;
+&lt;p&gt;Having decided to implement the templates and now being aware of the specific
+files required, the first step was to move the old blog posts into this
+directory structure and modify as necessary.&lt;&#x2F;p&gt;
+&lt;p&gt;Beyond modifying the necessary metadata in each post&#x27;s header, there wasn&#x27;t
+actually much more required.&lt;&#x2F;p&gt;
+&lt;p&gt;For instance, Hugo favours:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;---
+title: &amp;quot;🔓 Hack the Shed&amp;quot;
+date: 2019-06-19T20:19:51+01:00
+description: &amp;quot;Drink all the booze; hack all the things.&amp;quot;
+tags: [&amp;quot;security&amp;quot;, &amp;quot;owasp&amp;quot;]
+categories: [&amp;quot;security&amp;quot;]
+---
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…while the same file in Zola looks like:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;+++
+title = &amp;quot;🔓 Hack the Shed&amp;quot;
+date = 2019-06-19
+description = &amp;quot;Drink all the booze; hack all the things.&amp;quot;
+
+[taxonomies]
+tags = [&amp;quot;security&amp;quot;, &amp;quot;owasp&amp;quot;]
+categories = [&amp;quot;security&amp;quot;]
++++
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The &lt;code&gt;[taxonomies]&lt;&#x2F;code&gt; section is perhaps the biggest change: the &lt;code&gt;tags&lt;&#x2F;code&gt; and
+&lt;code&gt;categories&lt;&#x2F;code&gt; aren&#x27;t used by default in Zola and instead need to be configured.
+They are, however, arguably more versatile.&lt;&#x2F;p&gt;
+&lt;p&gt;They need to be explicitly added in the configuration file, &lt;code&gt;config.toml&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;taxonomies &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;= [
+    {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;name &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;tags&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rss &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;},
+    {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;name &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;categories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rss &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;},
+]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;As per Zola&#x27;s
+&lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;content&#x2F;taxonomies&#x2F;&quot;&gt;documentation&lt;&#x2F;a&gt;,
+they can largely be any grouping needed but the previous taxonomies were left
+for now (if it ain&#x27;t broke…)&lt;&#x2F;p&gt;
+&lt;p&gt;So we have:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;a handful of HTML templates files, using Bootstrap.&lt;&#x2F;li&gt;
+&lt;li&gt;the previous blog posts from the old site.&lt;&#x2F;li&gt;
+&lt;li&gt;errrr…profit?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;That&#x27;s actually it. Teething issues with Zola aside, the actual generation of
+the final site once the content was migrated and templates written (largely
+based on the numerous provided Bootstrap samples), was as simple as
+&lt;code&gt;zola build&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Now just to put that newly-generated static content somewhere…&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;fork-it&quot;&gt;Fork It&lt;&#x2F;h2&gt;
+&lt;p&gt;The previous mechanism for deployment—and one I&#x27;d hoped to retain in this
+version—was via use of a
+&lt;a href=&quot;https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2&#x2F;Git-Tools-Submodules&quot;&gt;Git submodule&lt;&#x2F;a&gt;
+referencing an entirely separate, public GitHub repo. to which the static
+content can be pushed; the Zola code can therefore be isolated in a private
+repo. for tinkering.&lt;&#x2F;p&gt;
+&lt;p&gt;Although Zola seemingly recommends submodules for
+&lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;deployment&#x2F;github-pages&#x2F;&quot;&gt;themes&lt;&#x2F;a&gt;
+it seems the developers are
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;getzola&#x2F;zola&#x2F;issues&#x2F;560&quot;&gt;not fans&lt;&#x2F;a&gt; for their use as part of
+the deployment process. The &lt;code&gt;public&lt;&#x2F;code&gt; folder wherein the generated content is
+created by default, is nuked on each &lt;code&gt;zola build&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Arguably for familiarity&#x27;s sake (and arguably to keep things progressing at a
+fair pace), I opted to create a
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;PsypherPunk&#x2F;zola&quot;&gt;fork&lt;&#x2F;a&gt; and altered the cleanup stage of
+the
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;PsypherPunk&#x2F;zola&#x2F;blob&#x2F;master&#x2F;components&#x2F;site&#x2F;src&#x2F;lib.rs&quot;&gt;&lt;code&gt;site&lt;&#x2F;code&gt; sub-crate&lt;&#x2F;a&gt;
+to:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;retain the root (i.e. &lt;code&gt;public&lt;&#x2F;code&gt;) folder.&lt;&#x2F;li&gt;
+&lt;li&gt;ignore hidden files (i.e. the &lt;code&gt;.git&lt;&#x2F;code&gt; folder.)&lt;&#x2F;li&gt;
+&lt;li&gt;delete all other folders therein as per existing behaviour.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Thankfully Zola already makes use of
+&lt;a href=&quot;https:&#x2F;&#x2F;docs.rs&#x2F;crate&#x2F;walkdir&#x2F;2.3.2&quot;&gt;&lt;code&gt;walkdir&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; so there were zero new
+dependencies. And it works.&lt;&#x2F;p&gt;
+&lt;p&gt;And look at that, I even got a blog post out of it.&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="en">
 		<title>💾 Jargon</title>
 		<published>2019-11-18T00:00:00+00:00</published>

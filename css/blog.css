@@ -15,3 +15,8 @@ img {
 .card-header a, .card-text a, small.tag a, .list-group-item-heading a {
     text-decoration: none;
 }
+
+blockquote {
+    margin-left: 1em;
+    margin-right: 1em;
+}

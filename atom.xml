@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>psypherpunk::blog</title>
+	<link href="https://blog.psypherpunk.io/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://blog.psypherpunk.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2019-11-18T00:00:00+00:00</updated>
+	<id>https://blog.psypherpunk.io/atom.xml</id>
+	<entry xml:lang="en">
+		<title>💾 Jargon</title>
+		<published>2019-11-18T00:00:00+00:00</published>
+		<updated>2019-11-18T00:00:00+00:00</updated>
+		<link href="https://blog.psypherpunk.io/jargon/" type="text/html"/>
+		<id>https://blog.psypherpunk.io/jargon/</id>
+		<content type="html">&lt;h2 id=&quot;jargon-do-you-grok-it&quot;&gt;Jargon, do you grok it?&lt;&#x2F;h2&gt;
+&lt;p&gt;I recently had a weird conversation on Teams (yes, we use Microsoft
+Teams at work; don&#x27;t judge us); triggered by a question in a recent
+Postman user-survey, it prompted a discussion around &amp;quot;unique terminology&amp;quot;
+in sofware development and to what degree each of us had been exposed.&lt;&#x2F;p&gt;
+&lt;p&gt;Not long after, I ended up referencing a
+&lt;a href=&quot;http:&#x2F;&#x2F;www.catb.org&#x2F;jargon&#x2F;html&#x2F;P&#x2F;phase-of-the-moon.html&quot;&gt;&lt;em&gt;phase of the moon&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;
+issue with a colleague, with regard to some particularly erratic
+behaviour we were seeing.&lt;&#x2F;p&gt;
+&lt;p&gt;I couldn&#x27;t help but feel a little nostalgic, harkening back as it did
+to reading the Jargon File &lt;em&gt;back in the day&lt;&#x2F;em&gt;. Back at University, I
+used to have a copy of &lt;em&gt;The New Hacker&#x27;s Dictionary&lt;&#x2F;em&gt; on my shelf and
+would pore over its entries, hoping some profound knowledge would rub
+off in some weird form of osmosis twixt me and the hackers of yore.
+Spoilers: it didn&#x27;t.&lt;&#x2F;p&gt;
+&lt;p&gt;&amp;quot;Jargon&amp;quot; of any kind has an important place, whether in a culture or a
+profession, insofar as it invariably carries a loaded and precise
+meaning to those &amp;quot;in the know&amp;quot;. It&#x27;s that last part that arguably has
+most significance, as not only is the meaning important but
+also the weird sociological distinction—there&#x27;s something innately
+exclusionist about its use.&lt;&#x2F;p&gt;
+&lt;p&gt;Sociological musings aside, I was on a nostalgia trip.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;don-t-kiss-an-elephant-on-the-lips-today&quot;&gt;&lt;em&gt;&amp;quot;Don&#x27;t kiss an elephant on the lips today.&amp;quot;&lt;&#x2F;em&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Everyone remembers &lt;code&gt;fortune&lt;&#x2F;code&gt;, right?&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; fortune
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;A&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; few hours grace before the madness begins again.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Way back when I first used Linux (over 20 years ago now; Red Hat,
+before it gained its &lt;em&gt;Enterprise&lt;&#x2F;em&gt; suffix) something akin to the above
+would appear every time I logged in. It was strange, utterly alien to
+everything I&#x27;d know before, and I &lt;em&gt;loved it&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;So I wanted to throw together something that would spit out entries
+from the Jargon File, in the style of
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;shlomif&#x2F;fortune-mod&quot;&gt;&lt;code&gt;fortune&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; and its ilk.&lt;&#x2F;p&gt;
+&lt;p&gt;Using &lt;em&gt;Rust&lt;&#x2F;em&gt;, natch.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-jargon-file&quot;&gt;The Jargon File&lt;&#x2F;h2&gt;
+&lt;p&gt;The most recent version which can claim provenance from
+the original
+&lt;a href=&quot;https:&#x2F;&#x2F;jargon-file.org&#x2F;archive&#x2F;jargon-4.4.7.dos.txt&quot;&gt;Jargon File&lt;&#x2F;a&gt;
+is now sadly defunct. Thanks, however, to the wonderful folks at the
+Internet Archive, it&#x27;s been preserved
+&lt;a href=&quot;https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20130827121341&#x2F;http:&#x2F;&#x2F;cosman246.com&#x2F;jargon.html&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Although the content is more than worth your time, the HTML isn&#x27;t
+particularly well structured, making parsing difficult.&lt;&#x2F;p&gt;
+&lt;p&gt;What to do? Python and Beautiful Soup? Too much code.&lt;&#x2F;p&gt;
+&lt;p&gt;Use &lt;code&gt;sed&lt;&#x2F;code&gt; to strip the HTML tags? Well, that works but checking for
+multi-line tags feels like too much effort.&lt;&#x2F;p&gt;
+&lt;p&gt;Use &lt;code&gt;lynx&lt;&#x2F;code&gt; to dump the text? Everyone has a headless browser, right?&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;lynx &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;\
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;    --dump &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;\
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;    --width&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; 120 \
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;    --nonumbers &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;\
+    ${&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;INTERNET_ARCHIVE_URL&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;} &amp;gt; jargon.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That gives us a nice, parsed version of the original page with which to
+begin.&lt;&#x2F;p&gt;
+&lt;p&gt;A while ago, after getting rather bored, having cranked out a dozen
+&lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Plain_old_Java_object&quot;&gt;POJOs&lt;&#x2F;a&gt; for a
+project, I ended up outsourcing my efforts to a Python script. With a
+handful of lines and some configuration, I had the whole lot completed
+in a fraction of the time.&lt;&#x2F;p&gt;
+&lt;p&gt;Drawing on that earlier &lt;del&gt;laziness&lt;&#x2F;del&gt; inspiration, I tried the same
+here. Having defined a simple &lt;code&gt;struct&lt;&#x2F;code&gt; to hold each entry:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;pub struct &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;Jargon {
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;pub &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;term&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;: &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;&amp;#39;static str&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;,
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;pub &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;definition&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;: &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;&amp;#39;static str&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;,
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;…I wrote some Python to parse the &lt;code&gt;jargon.txt&lt;&#x2F;code&gt; file and generate
+hard-coded instances for each entry.&lt;&#x2F;p&gt;
+&lt;p&gt;However, wanting to dig a little deeper into how Rust might enable me
+to do this entirely in its own space, I started looking at
+&lt;a href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;cargo&#x2F;reference&#x2F;build-scripts.html&quot;&gt;Build Scripts&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The initial attempt is ugly but you can see it
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;PsypherPunk&#x2F;jargon-rs&#x2F;tree&#x2F;0.1.0&quot;&gt;here&lt;&#x2F;a&gt;. The build
+script effectively serves the same purpose as the Python code,
+generating the appropriate &lt;code&gt;lib.rs&lt;&#x2F;code&gt; file at compile time.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s inelegant at best and (again with the nostalgia) reminds me of the
+large, unstructured blocks of code I used to churn out when I was
+first thumbing through &lt;em&gt;The New Hacker&#x27;s Dictionary&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;There&#x27;s further work needed, certainly on getting to grips with the
+code, but also the entire &lt;code&gt;lynx&lt;&#x2F;code&gt; step can likely be dropped—I&#x27;d
+initially been wary of include the Jargon File&#x27;s contents in the repo.
+itself, failing to note that second paragraph where it&#x27;s explicity
+stated that it &lt;em&gt;&amp;quot;is in the public domain&amp;quot;&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Maybe it&#x27;ll even get published as a &lt;a href=&quot;https:&#x2F;&#x2F;crates.io&#x2F;&quot;&gt;&lt;em&gt;crate&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;
+(though it took me long enough to publish anything on PyPI, maybe
+that can wait a little longer.)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;jargon&quot;&gt;&lt;code&gt;jargon&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;That&#x27;s it. Clone the repo. and &lt;code&gt;cargo run --release&lt;&#x2F;code&gt;. It&#x27;ll randomly
+select one of the entries at runtime and print it, à la &lt;code&gt;fortune&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;If you&#x27;re also joining me on my nostalgia trip, you could even use
+&lt;code&gt;cowsay&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; jargon | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cowsay
+ ________________________________________________________________
+&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; gronk out vi.                                                  \
+|                                                                 |
+| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;To&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; cease functioning. Of people, to go home and go to sleep. &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;I |
+\ guess I&amp;#39;ll gronk out now; see you all tomorrow.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;               &#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;+++--------------------------------------------------------------
+       &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;^__^
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;oo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\_&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;______
+           (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;__&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\       &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;\
+               ||&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;----w &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;|
+               ||     ||
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>🔓 Hack the Shed</title>
+		<published>2019-06-19T00:00:00+00:00</published>
+		<updated>2019-06-19T00:00:00+00:00</updated>
+		<link href="https://blog.psypherpunk.io/hack-the-shed/" type="text/html"/>
+		<id>https://blog.psypherpunk.io/hack-the-shed/</id>
+		<content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&amp;quot;Has anyone ever participated in a Capture-the-flag style hacking event?
+Does anyone fancy trying one?&amp;quot;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;So, fairly innocuously, began what turned out to be a pretty interesting event.&lt;&#x2F;p&gt;
+&lt;p&gt;We recently ran a Capture the Flag (&lt;abbr title=&quot;Capture the Flag&quot;&gt;CTF&lt;&#x2F;abbr&gt;)
+event at my workplace. For anyone unfamiliar with the concept (which, in all
+fairness, was the position of many of the participants), there are a
+&lt;a href=&quot;https:&#x2F;&#x2F;ctftime.org&#x2F;ctf-wtf&#x2F;&quot;&gt;few variants&lt;&#x2F;a&gt; of CTF events but the essential
+premise is this: teams compete to find specific, intended vulnerabilities in a
+software application. Once found, the application presents the team with a code
+(the eponymous &amp;quot;flag&amp;quot;) which gains the team points. At the end of the
+competition, the team with the most points wins. Simple, no?&lt;&#x2F;p&gt;
+&lt;p&gt;The application in this instance was the
+&lt;a href=&quot;https:&#x2F;&#x2F;www.owasp.org&#x2F;index.php&#x2F;OWASP_Juice_Shop_Project&quot;&gt;OWASP Juice Shop&lt;&#x2F;a&gt;,
+a truly sublime piece of work, created by
+&lt;a href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;bkimminich&quot;&gt;Bjoern Kimminich&lt;&#x2F;a&gt;. The site presents itself as
+a &lt;em&gt;&amp;quot;a small online shop which sells - surprise! - fruit &amp;amp; vegetable juice and
+associated products&amp;quot;&lt;&#x2F;em&gt;. In reality, it&#x27;s an immensely well-crafted presentation
+of potential (and all-too-real) security vulnerabilities.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;juice-shop.png&quot; alt=&quot;OWASP Juice Shop&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;&#x2F;h2&gt;
+&lt;p&gt;Getting an instance of the Juice Shop up and running is straightforward
+enough—it&#x27;s easily deployable as a
+&lt;a href=&quot;https:&#x2F;&#x2F;elements.heroku.com&#x2F;buttons&#x2F;bkimminich&#x2F;juice-shop&quot;&gt;Heroku Element&lt;&#x2F;a&gt;,
+or you can get it running with Docker in a single command:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;docker&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; run&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --rm -p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; 3000:3000 bkimminich&#x2F;juice-shop
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That&#x27;ll give you a fully-functioning version of the Juice Shop at which you can
+hack away to your heart&#x27;s content. However, I wanted to keep the competition
+private and although Heroku does allow for restricting access, it comes at a
+cost. No, I was going to run this myself…&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;deployment&quot;&gt;Deployment&lt;&#x2F;h3&gt;
+&lt;p&gt;Although the documentation is available for
+&lt;a href=&quot;https:&#x2F;&#x2F;bkimminich.gitbooks.io&#x2F;pwning-owasp-juice-shop&#x2F;content&#x2F;&quot;&gt;free&lt;&#x2F;a&gt; on the
+web, it&#x27;s also available for purchase on
+&lt;a href=&quot;https:&#x2F;&#x2F;leanpub.com&#x2F;juice-shop&quot;&gt;Leanpub&lt;&#x2F;a&gt;. In the hope that some of the money
+makes it back to the contributors, I&#x27;d highly recommend acquiring a copy.&lt;&#x2F;p&gt;
+&lt;p&gt;By default, the application effectively runs in a &amp;quot;standalone&amp;quot; mode, allowing
+users to find the various vulnerabilities but can also be run in CTF mode,
+presenting unique CTF flag codes upon discovery, again well
+&lt;a href=&quot;https:&#x2F;&#x2F;bkimminich.gitbooks.io&#x2F;pwning-owasp-juice-shop&#x2F;content&#x2F;part1&#x2F;ctf.html&quot;&gt;documented&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;For the purposes of the competition, there are two components: the Juice Shop
+itself (one per team) plus a scoreboard.&lt;&#x2F;p&gt;
+&lt;p&gt;The scoreboard serves a multitude of purposes: handling registrations for each
+of the users (and their corresponding teams), offering a centralised point in
+which flags can be collated and tracked and, most importantly, presenting the
+scores for everyone to see.&lt;&#x2F;p&gt;
+&lt;p&gt;There are two main scoreboards covered in the documentation:
+&lt;a href=&quot;https:&#x2F;&#x2F;ctfd.io&#x2F;about&#x2F;&quot;&gt;CTFd&lt;&#x2F;a&gt; and Facebook&#x27;s
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;facebook&#x2F;fbctf&quot;&gt;fbctf&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Spoilers: I opted for the former. The latter, although it has a nice aesthetic,
+presented far too many problems during setup while the former &amp;quot;just worked&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;So my plan was this:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I&#x27;d run a single virtual machine for the whole competition.&lt;&#x2F;li&gt;
+&lt;li&gt;Each instance of the Juice Shop would have its own unique hostname.&lt;&#x2F;li&gt;
+&lt;li&gt;The CTFd instance would run alongside them.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Easy enough, right?&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;the-virtual-machine&quot;&gt;The Virtual Machine&lt;&#x2F;h3&gt;
+&lt;p&gt;I opted for a Virtual Machine hosted by DigitalOcean (sorry, a
+&lt;a href=&quot;https:&#x2F;&#x2F;www.digitalocean.com&#x2F;products&#x2F;droplets&#x2F;&quot;&gt;&lt;em&gt;droplet&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;)
+running &lt;a href=&quot;https:&#x2F;&#x2F;www.digitalocean.com&#x2F;products&#x2F;droplets&#x2F;&quot;&gt;Debian Stretch&lt;&#x2F;a&gt;
+(because &lt;em&gt;Debian&lt;&#x2F;em&gt;) and decided to run everything using Docker (because
+&lt;em&gt;DevOps&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;For the purposes of locking the machine down during setup, I used
+&lt;a href=&quot;https:&#x2F;&#x2F;code.launchpad.net&#x2F;ufw&quot;&gt;&lt;em&gt;Uncomplicated Firewall&lt;&#x2F;em&gt;&lt;&#x2F;a&gt; to restrict access
+from anywhere except the office:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; ufw default deny incoming
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; ufw default allow outgoing
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; ufw allow from ${&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;OFFICE_IP&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;} to ssh
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;the-juice-shop-s&quot;&gt;The Juice Shop(s)&lt;&#x2F;h3&gt;
+&lt;p&gt;It&#x27;s worth noting that the Juice Shop does allow for
+&lt;a href=&quot;https:&#x2F;&#x2F;bkimminich.gitbooks.io&#x2F;pwning-owasp-juice-shop&#x2F;content&#x2F;part1&#x2F;customization.html&quot;&gt;customisation&lt;&#x2F;a&gt;—everything
+from logos to shop items and such. However, frankly I didn&#x27;t want to detract
+from the beauty of the thing—it really is a marvel, the level of effort which
+has been applied to the project.&lt;&#x2F;p&gt;
+&lt;p&gt;In order to generate unique keys for each of the flags (lest some enterprising
+participant use a code they happened upon elsewhere…) we first generated a
+random string:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CTF_KEY&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cat&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; &#x2F;dev&#x2F;urandom &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;tr -dc &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;a-zA-Z0-9&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;fold -w&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; 32 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head -n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; 1)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally, for each instance of the Juice Shop that we needed (two, in our case),
+we launch a Docker container for each:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;docker&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; run&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;\
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;    --name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; juice-shop-ctf \
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;    --env &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;CTF_KEY=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CTF_KEY&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;    --env &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;NODE_ENV=ctf&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;    --publish &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;JUICE_SHOP_PORT&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;}:3000 \
+    bkimminich&#x2F;juice-shop
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Note that each ran on a different port on the host (specified via
+&lt;code&gt;JUICE_SHOP_PORT&lt;&#x2F;code&gt; above) and we passed in the &lt;code&gt;CTF_KEY&lt;&#x2F;code&gt; value generated earlier.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;ctfd&quot;&gt;CTFd&lt;&#x2F;h3&gt;
+&lt;p&gt;Running an instance of the scoreboard was, thankfully, not much more difficult:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; clone https:&#x2F;&#x2F;github.com&#x2F;CTFd&#x2F;CTFd.git
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;cd&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; CTFd&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Once we had a copy of the codebase there was only one further step before
+launching—including the random key we generated earlier. In the cloned folder,
+we need to edit the &lt;code&gt;docker-compose.yml&lt;&#x2F;code&gt; file to include a &lt;code&gt;SECRET_KEY&lt;&#x2F;code&gt; value:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;version: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;services:
+  ctfd:
+    …
+    environment:
+      -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; SECRET_KEY=${&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CTF_KEY&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;}
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;…
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The &lt;code&gt;CTF_KEY&lt;&#x2F;code&gt; above was replaced with the &lt;em&gt;actual&lt;&#x2F;em&gt; generated value. Once that
+single line was added, the instance was ready to launch.&lt;&#x2F;p&gt;
+&lt;p&gt;As hinted in the above step, CTFd uses
+&lt;a href=&quot;https:&#x2F;&#x2F;docs.docker.com&#x2F;compose&#x2F;&quot;&gt;&lt;code&gt;docker-compose&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; to handle the various
+services which are needed, the installation instructions for which are nicely
+&lt;a href=&quot;https:&#x2F;&#x2F;docs.docker.com&#x2F;compose&#x2F;install&#x2F;&quot;&gt;straightforward&lt;&#x2F;a&gt;. Once installed…&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;docker-compose&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; up&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -d
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;dns&quot;&gt;DNS&lt;&#x2F;h3&gt;
+&lt;p&gt;With two Juice Shop instances and a scoreboard running, it was time to make
+them accessible.&lt;&#x2F;p&gt;
+&lt;p&gt;For reference, we had two teams: &lt;em&gt;Anomynoush&lt;&#x2F;em&gt; (an acknowledgement of the noted
+hacktivist collective and a visiting dignitary) and &lt;em&gt;H4ck t3h P14n3t!&lt;&#x2F;em&gt; (which,
+if you don&#x27;t get the reference: &lt;em&gt;shame on you!&lt;&#x2F;em&gt;). So we would need three
+subdomains:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;anomynoush.example.com&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;h4ckt3hp14n3t.example.com&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;ctfd.example.com&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Creating the various subdomains for each of the services was a matter of
+creating DNS &lt;em&gt;A records&lt;&#x2F;em&gt;—the exact steps for this will vary depending on with
+whom your domain is registered. In this instance, the domain was registered
+with &lt;a href=&quot;https:&#x2F;&#x2F;www.namecheap.com&#x2F;&quot;&gt;Namecheap&lt;&#x2F;a&gt; and their
+&lt;a href=&quot;https:&#x2F;&#x2F;www.namecheap.com&#x2F;support&#x2F;knowledgebase&#x2F;article.aspx&#x2F;9776&#x2F;2237&#x2F;how-to-create-a-subdomain-for-my-domain&quot;&gt;documentation&lt;&#x2F;a&gt;
+is decent enough, albeit specific to their interface.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;https&quot;&gt;HTTPS&lt;&#x2F;h3&gt;
+&lt;p&gt;Naturally we&#x27;re going to make everything accessible over HTTPS and that means
+&lt;em&gt;certificates&lt;&#x2F;em&gt;. And frankly, few services have done more for the proliferation
+of HTTPS than &lt;a href=&quot;https:&#x2F;&#x2F;letsencrypt.org&#x2F;&quot;&gt;&lt;em&gt;Let&#x27;s Encrypt&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;In this case, I used &lt;a href=&quot;https:&#x2F;&#x2F;certbot.eff.org&#x2F;&quot;&gt;&lt;em&gt;Certbot&lt;&#x2F;em&gt;&lt;&#x2F;a&gt; to facilitate the
+creation of each certificate. There are a few different methods and various
+plugins but the steps that worked for me were:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; apt install certbot python-certbot-nginx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; ufw allow 80
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; certbot&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --nginx -d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CTF_HOST&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; ufw delete allow 80
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Yes, it involved temporarily opening up port 80 in the firewall, but it
+&lt;em&gt;worked&lt;&#x2F;em&gt;. Once that was repeated for each of the hostnames (represented by
+&lt;code&gt;CTF_HOST&lt;&#x2F;code&gt; above), I just needed something to route traffic to the containers.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;nginx&quot;&gt;NGINX&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nginx.com&#x2F;&quot;&gt;NGINX&lt;&#x2F;a&gt; is &lt;em&gt;awesome&lt;&#x2F;em&gt;. In this case, it&#x27;s providing a
+reverse-proxy, handling routing of incoming requests to the corresponding
+containers.&lt;&#x2F;p&gt;
+&lt;p&gt;Again, DigitalOcean have excellent
+&lt;a href=&quot;https:&#x2F;&#x2F;www.digitalocean.com&#x2F;community&#x2F;tutorials&#x2F;how-to-install-nginx-on-ubuntu-16-04&quot;&gt;documentation&lt;&#x2F;a&gt;
+on the setup but here&#x27;s the setup for one of the Juice Shop instances:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-nginx&quot; data-lang=&quot;nginx&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;server {
+    server_name h4ckt3hp14n3t.example.com;
+    listen 443 ssl http2;
+    client_max_body_size 1M;
+
+    add_header X-Clacks-Overhead &amp;quot;GNU Terry Pratchett&amp;quot;;
+    add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubDomains; always&amp;quot;;
+    add_header X-Frame-Options DENY;
+    add_header X-Content-Type-Options nosniff;
+    add_header X-XSS-Protection &amp;quot;1; mode=block&amp;quot;;
+    add_header Content-Security-Policy &amp;quot;default-src &amp;#39;self&amp;#39;; script-src &amp;#39;self&amp;#39; &amp;#39;unsafe-inline&amp;#39; &amp;#39;unsafe-eval&amp;#39; https:&#x2F;&#x2F;cdnjs.cloudflare.com; img-src &amp;#39;self&amp;#39;; style-src &amp;#39;self&amp;#39; &amp;#39;unsafe-inline&amp;#39;; font-src &amp;#39;self&amp;#39;; object-src &amp;#39;none&amp;#39;; connect-src &amp;#39;self&amp;#39;&amp;quot;;
+
+    location &#x2F; {
+        proxy_set_header Host $http_host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &amp;quot;upgrade&amp;quot;;
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_set_header X-Forwarded-Protocol $scheme;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_connect_timeout 300s;
+        proxy_read_timeout 300s;
+        proxy_pass http:&#x2F;&#x2F;localhost:3001&#x2F;;
+    }
+
+    ssl on;
+    ssl_certificate &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;h4ckt3hp14n3t.example.com&#x2F;fullchain.pem;
+    ssl_certificate_key &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;h4ckt3hp14n3t.example.com&#x2F;privkey.pem;
+
+    ssl_session_timeout 5m;
+    ssl_session_cache  shared:SSL:10m;
+
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+    ssl_protocols TLSv1.2;
+
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache  builtin:1000  shared:SSL:10m;
+    ssl_session_tickets off;
+    ssl_stapling on;
+    ssl_stapling_verify on;
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The important things to note here are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;server_name&lt;&#x2F;code&gt;: this is the hostname designated in the &lt;a href=&quot;https:&#x2F;&#x2F;blog.psypherpunk.io&#x2F;hack-the-shed&#x2F;#dns&quot;&gt;DNS&lt;&#x2F;a&gt; section
+earlier.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;proxy_pass&lt;&#x2F;code&gt;: this will always be &lt;code&gt;http:&#x2F;&#x2F;localhost&lt;&#x2F;code&gt; but the port will be the
+&lt;code&gt;JUICE_SHOP_PORT&lt;&#x2F;code&gt; value specified in the &lt;a href=&quot;https:&#x2F;&#x2F;blog.psypherpunk.io&#x2F;hack-the-shed&#x2F;#the-juice-shop-s&quot;&gt;Juice Shop(s)&lt;&#x2F;a&gt;
+section earlier.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;ssl_certificate&lt;&#x2F;code&gt; and &lt;code&gt;ssl_certificate_key&lt;&#x2F;code&gt; will be the values of the files
+created as part of the &lt;a href=&quot;https:&#x2F;&#x2F;blog.psypherpunk.io&#x2F;hack-the-shed&#x2F;#https&quot;&gt;HTTPS&lt;&#x2F;a&gt; section earlier.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Once each of the sites are configured as per the above, the final step is to
+tell the firewall to allow incoming connections:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; ufw allow from ${&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;OFFICE_IP&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;} to any port https
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;setting-up-the-scoreboard&quot;&gt;Setting Up the Scoreboard&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;importing-the-flags&quot;&gt;Importing the Flags&lt;&#x2F;h4&gt;
+&lt;p&gt;The first stage in setting up the CTFd instance is adding the various flags
+from the Juice Shop. Thankfully, there&#x27;s a nice tool,
+&lt;a href=&quot;https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;juice-shop-ctf-cli&quot;&gt;juice-shop-ctf-cli&lt;&#x2F;a&gt; created
+for just this purpose. There&#x27;s some configuration but I created a &lt;code&gt;ctfd.yaml&lt;&#x2F;code&gt;
+file with the various options:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ctfFramework&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CTFd 2.x
+juiceShopUrl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;https:&#x2F;&#x2F;juice-shop.herokuapp.com
+ctfKey&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Kjrcvim78J5MLR6a7zoaSO73LZJoSWDB
+countryMapping&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;bkimminich&#x2F;juice-shop&#x2F;master&#x2F;config&#x2F;fbctf.yml
+insertHints&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;paid
+insertHintUrls&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;paid
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;After which you can use the &lt;code&gt;juice-shop-ctf-cli&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;npm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -g&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; juice-shop-ctf-cli
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;juice-shop-ctf --config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; ctfd.yaml
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This creates a ZIP file which can be uploaded to CTFd&#x27;s Admin. section.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;users-teams&quot;&gt;Users &amp;amp; Teams&lt;&#x2F;h4&gt;
+&lt;p&gt;CTFd allows for running competitions in either a user- or team-based mode. I
+wanted people to be grouped into teams with each person having their own login.&lt;&#x2F;p&gt;
+&lt;p&gt;This is where I ran into issues.&lt;&#x2F;p&gt;
+&lt;p&gt;The first step was to set up an
+&lt;a href=&quot;https:&#x2F;&#x2F;myaccount.google.com&#x2F;apppasswords&quot;&gt;app. password&lt;&#x2F;a&gt; on my personal Gmail
+account. Once configured, I manually created accounts for each of the
+participants—and CTFd kindly forwarded the login details via email to each
+individual—and added the two teams.&lt;&#x2F;p&gt;
+&lt;p&gt;At which point I couldn&#x27;t figure out for the life of me how to add users to
+those teams. Users can &lt;em&gt;create&lt;&#x2F;em&gt; teams and then pass the details to other users
+to join but no one could seemingly join the one&#x27;s I&#x27;d created.&lt;&#x2F;p&gt;
+&lt;p&gt;After calmly reading the documentation and in no way panicking because it was
+lunch time and the competition was only a few hours away, I ended up nuking the
+CTFd instance.&lt;&#x2F;p&gt;
+&lt;p&gt;And then it got &lt;em&gt;weird&lt;&#x2F;em&gt;…&lt;&#x2F;p&gt;
+&lt;p&gt;After recreating the CTFd instance all my users were still there, as were the
+flags. But I&#x27;d removed the containers &lt;em&gt;entirely&lt;&#x2F;em&gt;—what was happening?! It turns
+out that CTFd keeps everything in local directory—&lt;code&gt;.data&lt;&#x2F;code&gt;—and that was
+persisting following the deletion.&lt;&#x2F;p&gt;
+&lt;p&gt;So no, I wasn&#x27;t losing my mind; but I &lt;em&gt;was&lt;&#x2F;em&gt; running out of time…&lt;&#x2F;p&gt;
+&lt;p&gt;By this point I&#x27;d pretty much given up. I&#x27;m sure the documentation covers it
+somewhere but I still couldn&#x27;t put my newly-created users in newly-created
+teams. So I cheated. Using some of the credentials I&#x27;d already minted for two
+of the users (one from each team), I created the team using that user. Then
+manually logged in as each user and joined the right team.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;running-the-event&quot;&gt;Running the Event&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;beforehand&quot;&gt;Beforehand&lt;&#x2F;h3&gt;
+&lt;p&gt;On the day of the competition, I made a quick presentation earlier in the day,
+hoping to cover the running order and answer any queries (rather than doing
+everything 5 minutes before we started):&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;Start: 16:00
+gather teams,
+grab beers
+
+Stop: 18:00
+present the trophy…
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Oh, and set the necessary ground-rules:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;rules:
+* don’t be a dick.
+* don’t break it.
+* have fun.
+* learn things.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;competition-time&quot;&gt;Competition Time&lt;&#x2F;h3&gt;
+&lt;p&gt;For the actual event, the two teams were set up in their own area. I&#x27;d asked
+that one person from each time stream to a nearby television; a separate TV was
+used to screen the scoreboard—I&#x27;d hoped that we&#x27;d get a few spectators and this
+would keep things interesting. Turns out we did—a couple had even joined in and
+bagged a flag by the end of the competition.&lt;&#x2F;p&gt;
+&lt;p&gt;At 16:00 the competitors grabbed beers, got their heads down and started. The
+competition&#x27;s duration was dictated by the official
+&lt;a href=&quot;https:&#x2F;&#x2F;open.spotify.com&#x2F;user&#x2F;psypherpunk&#x2F;playlist&#x2F;1dZQGTDJMll0B5DBQN3bpp?si=u4GPy9_VRvOv7-OaKk83_A&quot;&gt;soundtrack&lt;&#x2F;a&gt;,
+running for about 2 hours.&lt;&#x2F;p&gt;
+&lt;p&gt;It was interesting to watch the various ways people worked through the hints.
+One team immediately created a Teams channel (our internal comms. tool of
+choice) to keep track of flags; some coordinated their team-mates, providing
+some excellent Google-fu to assist in tracking down some of the more obscure
+clues.&lt;&#x2F;p&gt;
+&lt;p&gt;But, as the last bars of the soundtrack faded, there could be only one winning
+team—&lt;em&gt;Anomynoush&lt;&#x2F;em&gt;!—who could claim the trophy: The Golden Hacker™.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;golden-hacker.jpg&quot; alt=&quot;The Golden Hacker™&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-s-next&quot;&gt;What&#x27;s next?&lt;&#x2F;h2&gt;
+&lt;p&gt;The VM was budgeted for the month so the following day the Juice Shops were
+started back up to allow people to continue catching some of the more elusive
+flags.&lt;&#x2F;p&gt;
+&lt;p&gt;One thing that had surprised me was the amount of progress made in that first
+hour. I&#x27;d intentionally kept the competition fairly short to avoid anyone
+feeling &amp;quot;stuck&amp;quot;; I should never have doubted them, should I? With that in mind,
+there&#x27;s now the intention to run some smaller, shorter sessions for anyone who
+couldn&#x27;t make it.&lt;&#x2F;p&gt;
+&lt;p&gt;The CTF event was, I think, not only a great way to raise security awareness
+within teams but it was &lt;em&gt;fun&lt;&#x2F;em&gt;. The Juice Shop is an ideal format for this sort
+of event—it&#x27;s wonderfully presented but it&#x27;s also a &lt;em&gt;genuine&lt;&#x2F;em&gt; application with
+&lt;em&gt;genuine&lt;&#x2F;em&gt; vulnerabilities.&lt;&#x2F;p&gt;
+&lt;p&gt;I just need to figure out how to top it for the next one…&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>🐛 Go Down the Rabbit Hole</title>
+		<published>2019-02-13T00:00:00+00:00</published>
+		<updated>2019-02-13T00:00:00+00:00</updated>
+		<link href="https://blog.psypherpunk.io/go-down-the-rabbit-hole/" type="text/html"/>
+		<id>https://blog.psypherpunk.io/go-down-the-rabbit-hole/</id>
+		<content type="html">&lt;p&gt;I like a good em-dash. It&#x27;s delightfully versatile, easily taking the place of
+other, lesser punctuation marks.&lt;&#x2F;p&gt;
+&lt;p&gt;However, while writing my last blog post I ran into a problem. Originally
+written in &lt;a href=&quot;https:&#x2F;&#x2F;daringfireball.net&#x2F;projects&#x2F;markdown&#x2F;&quot;&gt;Markdown&lt;&#x2F;a&gt;, my
+beloved em-dash was causing all sorts of problems. Specifically, this paragraph:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Well that&#x27;s a lot of results, 511 in fact (at time of writing). Of course,
+that doesn&#x27;t mean that our password is actually in that list—*because, of
+course, no one would ever use it*—but we can double-check by seeing if the
+suffix from our SHA1 is in the list:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;That little aside—not only parenthetical but &lt;em&gt;italicised&lt;&#x2F;em&gt; also (I was having
+one of those days, clearly)—wasn&#x27;t displaying as intended, failing to lean to
+the right and instead keeping those silly asterisks (they&#x27;re not even
+punctuation!). Why? Down the proverbial rabbit-hole we go…&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;blog&quot;&gt;Blog&lt;&#x2F;h2&gt;
+&lt;p&gt;In no way prompted by the &lt;del&gt;incessant harassment&lt;&#x2F;del&gt; gentle coaxing of our CEO,
+I&#x27;ve been trying to maintain a blog for a while now (and when I say &amp;quot;maintain&amp;quot;,
+I largely mean &amp;quot;start&amp;quot;). To that end, I&#x27;ve installed, uninstalled and
+reinstalled all manner of static site generators in a handful of languages:
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;getpelican&#x2F;pelican&quot;&gt;&lt;em&gt;Pelican&lt;&#x2F;em&gt;&lt;&#x2F;a&gt; (&lt;em&gt;Python&lt;&#x2F;em&gt;),
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;getnikola&#x2F;nikola&quot;&gt;&lt;em&gt;Nikola&lt;&#x2F;em&gt;&lt;&#x2F;a&gt; (also Python),
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;cobalt-org&#x2F;cobalt.rs&quot;&gt;&lt;em&gt;Cobalt&lt;&#x2F;em&gt;&lt;&#x2F;a&gt; (Rust)…before finally
+settling on &lt;em&gt;Gutenberg&lt;&#x2F;em&gt; (Rust). Then it went and changed its name to
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;getzola&#x2F;zola&quot;&gt;&lt;em&gt;Zola&lt;&#x2F;em&gt;&lt;&#x2F;a&gt; (still Rust).&lt;&#x2F;p&gt;
+&lt;p&gt;So, having finally settled on the right tool, I promptly thought &lt;em&gt;&amp;quot;this seems
+like an opportune moment to learn some Go&amp;quot;&lt;&#x2F;em&gt; and opted for
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;gohugoio&#x2F;hugo&quot;&gt;&lt;em&gt;Hugo&lt;&#x2F;em&gt;&lt;&#x2F;a&gt; (Go).&lt;&#x2F;p&gt;
+&lt;p&gt;Having only dabbled so far, and finding that Hugo had seemingly opted for
+Markdown and not the infinitely superior
+&lt;a href=&quot;http:&#x2F;&#x2F;docutils.sourceforge.net&#x2F;rst.html&quot;&gt;reStructureText&lt;&#x2F;a&gt;, I ran into the
+aforementioned problem.&lt;&#x2F;p&gt;
+&lt;p&gt;Shall we check the documentation and see if this is known issue? &lt;em&gt;&amp;quot;No!&amp;quot;&lt;&#x2F;em&gt; I said
+to myself. &lt;em&gt;&amp;quot;Let&#x27;s learn some Go and try and get to the bottom of this&amp;quot;&lt;&#x2F;em&gt;, I
+decided.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;go&quot;&gt;Go&lt;&#x2F;h2&gt;
+&lt;p&gt;Currently the programming language of choice practically everywhere (definitely
+in some dark corners of our office), &lt;a href=&quot;https:&#x2F;&#x2F;golang.org&#x2F;&quot;&gt;Go&lt;&#x2F;a&gt; needs little
+introduction. It&#x27;s snappy, it&#x27;s relatively easy to read and it &lt;del&gt;has&lt;&#x2F;del&gt; had an
+amusing &lt;a href=&quot;https:&#x2F;&#x2F;golang.org&#x2F;doc&#x2F;gopher&#x2F;gophercolor.png&quot;&gt;logo&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;hugo&quot;&gt;Hugo&lt;&#x2F;h3&gt;
+&lt;p&gt;Getting and building Hugo&#x27;s source is easy enough:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; clone https:&#x2F;&#x2F;github.com&#x2F;gohugoio&#x2F;hugo.git
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;cd&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; hugo
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;go&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; install
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Wait, what happened? No output. Did that work? Apparently that &lt;em&gt;should&lt;&#x2F;em&gt; have
+built a binary and put it in my path…&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; hugo
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Total&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; in 0 ms
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Error:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; Error building site: open &#x2F;home&#x2F;roger&#x2F;content: no such file or directory
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Crikey, it worked. I&#x27;m not enjoying the lack of output but so far so good (that
+error coming from the fact I&#x27;m running this in Hugo&#x27;s repository, not a site
+built by Hugo).&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;blackfriday&quot;&gt;Blackfriday&lt;&#x2F;h3&gt;
+&lt;p&gt;Perusing the source code a little, it looks like Hugo is using a Markdown
+library called &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;russross&#x2F;blackfriday&quot;&gt;Blackfriday&lt;&#x2F;a&gt;. Maybe
+that&#x27;s the source of our problem? Let&#x27;s write some Go!&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;package &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;main
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(
+    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;fmt&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
+    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;github.com&#x2F;russross&#x2F;blackfriday&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
+)
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;func &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;() {
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;output &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;blackfriday&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;MarkdownBasic&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;([]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;byte&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\n\n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;This is a sentence—*here&amp;#39;s an italicised aside*—and here&amp;#39;s the end.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\n\n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;))
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;fmt&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Println&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;string&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;output&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;))
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So with some furious Googling, we &lt;code&gt;go build&lt;&#x2F;code&gt; and run the resulting binary and
+we get…&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;p&amp;gt;This is a sentence—&amp;lt;em&amp;gt;here&amp;#39;s an italicised aside&amp;lt;&#x2F;em&amp;gt;—and here&amp;#39;s the end.&amp;lt;&#x2F;p&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Damn; it worked (note the correct &lt;code&gt;&amp;lt;em&amp;gt;&lt;&#x2F;code&gt; tags around our aside). Maybe it&#x27;s a
+version thing? This would seem an opportune moment to investigate how Go
+handles its dependencies.&lt;&#x2F;p&gt;
+&lt;p&gt;Oh, but I really wish that weren&#x27;t true…&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;go-dependencies&quot;&gt;Go Dependencies&lt;&#x2F;h3&gt;
+&lt;p&gt;Dependency management in Go appears to be in something of an &amp;quot;interesting&amp;quot;
+state at the time of writing. If you start looking at the documentation, you
+learn about &lt;code&gt;dep&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;code&gt;dep&lt;&#x2F;code&gt; was the &amp;quot;official experiment.&amp;quot; The Go toolchain, as of 1.11, has
+(experimentally) adopted an approach that sharply diverges from &lt;code&gt;dep&lt;&#x2F;code&gt;.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;So the &lt;em&gt;&amp;quot;official experiment&amp;quot;&lt;&#x2F;em&gt; got canned and there&#x27;s an &amp;quot;&lt;em&gt;experimental&lt;&#x2F;em&gt;&amp;quot;
+replacement?&lt;&#x2F;p&gt;
+&lt;p&gt;How is Hugo doing this?&lt;&#x2F;p&gt;
+&lt;p&gt;Well there&#x27;s a &lt;code&gt;go.mod&lt;&#x2F;code&gt; file and a &lt;code&gt;go.sum&lt;&#x2F;code&gt; file. Which apparently aren&#x27;t Go
+files, they&#x27;re Go &lt;a href=&quot;https:&#x2F;&#x2F;tip.golang.org&#x2F;doc&#x2F;go1.11#modules&quot;&gt;&lt;em&gt;module&lt;&#x2F;em&gt;&lt;&#x2F;a&gt; files.
+And what happens if we try and initialise our earlier code as a Go module?&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;go&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; mod init test
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Interesting: now I have a &lt;code&gt;go.mod&lt;&#x2F;code&gt; file. What happens when I do a &lt;code&gt;go build&lt;&#x2F;code&gt;
+again?&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; go build
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# test
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&#x2F;test.go:9:15: undefined: blackfriday.MarkdownBasic
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That doesn&#x27;t look right. The contents of our new &lt;code&gt;go.mod&lt;&#x2F;code&gt; appear to hold some
+clues:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; cat go.mod
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;module&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; test
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; (
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;github.com&#x2F;russross&#x2F;blackfriday&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; v2.0.0+incompatible
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;github.com&#x2F;shurcooL&#x2F;sanitized_anchor_name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; v1.0.0 &#x2F;&#x2F; indirect
+)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It would appear that Go has helpfully installed the latest version of
+Blackfriday. What&#x27;s Hugo running?&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; grep blackfriday go.mod
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;github.com&#x2F;russross&#x2F;blackfriday&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; v0.0.0-20180804101149-46c73eb196ba
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Aha! So it&#x27;s an older version; that &lt;em&gt;must&lt;&#x2F;em&gt; be the cause of our problem, right?
+Let&#x27;s replace the version in &lt;em&gt;our&lt;&#x2F;em&gt; &lt;code&gt;go.mod&lt;&#x2F;code&gt; file with the above one from Hugo,
+re-run &lt;code&gt;go build&lt;&#x2F;code&gt; and run our binary!&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; .&#x2F;test
+&amp;lt;p&amp;gt;This &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;is&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; a sentence—&amp;lt;em&amp;gt;here&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s an italicised aside&amp;lt;&#x2F;em&amp;gt;—and here&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39;s the end.&amp;lt;&#x2F;p&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Oh fudge.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;debugging&quot;&gt;Debugging&lt;&#x2F;h3&gt;
+&lt;p&gt;For the purposes of this experiment, I&#x27;m running Jetbrains&#x27;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.jetbrains.com&#x2F;go&#x2F;&quot;&gt;GoLand&lt;&#x2F;a&gt;. Thankfully their tooling caters to the
+likes of myself and their debug settings kindly inform me that I need to run
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;go-delve&#x2F;delve&quot;&gt;&lt;code&gt;delve&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;, apparently.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;run-debug-configurations-059.png&quot; alt=&quot;GoLand Run&#x2F;Debug Configuration&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Following those useful instructions, we recompile Hugo with the information
+provided:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;go&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -gcflags &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;all=-N -l&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then start Delve:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; dlv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --listen&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=:2345&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --headless&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --api-version&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=2 exec &#x2F;home&#x2F;roger&#x2F;go&#x2F;bin&#x2F;hugo -- server -D
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;API&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; server listening at: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;:2345
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;At this point we should cut to a kinetic montage—complete with inspirational
+power chords—while I haplessly click around, adding and removing breakpoints,
+trying to find a suitable point of ingress into Blackfriday&#x27;s code.&lt;&#x2F;p&gt;
+&lt;p&gt;Eventually I find myself in the &lt;code&gt;emphasis()&lt;&#x2F;code&gt; function, in &lt;code&gt;inline.go&lt;&#x2F;code&gt;.
+Seemingly, when &lt;code&gt;inline()&lt;&#x2F;code&gt; passes the text to &lt;code&gt;emphasis()&lt;&#x2F;code&gt; it&#x27;s truncated to:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;*because, of course, no one would ever use it*—but we can double-check by
+seeing if the suffix from our SHA1 is in the list:&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Okay, fair enough: this is the first point in this block of text in which we
+encounter markup so we&#x27;re processing the remaining text on that line.&lt;&#x2F;p&gt;
+&lt;p&gt;A few more clicks and we&#x27;re down into &lt;code&gt;helperEmphasis()&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Now &lt;code&gt;helperFindEmphChar()&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s looking promising as this function correctly identifies the position of
+the next &lt;code&gt;*&lt;&#x2F;code&gt; as index 44. So the code is correctly identifying the start and
+end positions of the emphasis but still failing to italicise the text…?&lt;&#x2F;p&gt;
+&lt;p&gt;We continue a little further, to find this block:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;flags&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;EXTENSION_NO_INTRA_EMPHASIS &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;!= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;{  
+   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;data&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;) || &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;isspace&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;data&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;]) || &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ispunct&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;data&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;])) {  
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;continue  
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;}  
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;At this point it slowly dawns on me: &lt;code&gt;data&lt;&#x2F;code&gt; here is an array of &lt;em&gt;bytes&lt;&#x2F;em&gt;; both
+the &lt;code&gt;isspace()&lt;&#x2F;code&gt; and &lt;code&gt;ispunct()&lt;&#x2F;code&gt; functions specifically compare a &lt;em&gt;byte&lt;&#x2F;em&gt; with a
+list of known, relevant characters. The latter, for instance, uses the static
+list of &lt;code&gt;!&amp;quot;#$%&amp;amp;&#x27;()\*+,-.&#x2F;:;&amp;lt;=&amp;gt;?@[\\]^_`{|}~&amp;quot;&lt;&#x2F;code&gt;. The problem is that the
+em-dash is &lt;em&gt;three&lt;&#x2F;em&gt; bytes (226, 128 and 148 expressed as decimals if you&#x27;re
+interested); this is never going to match.&lt;&#x2F;p&gt;
+&lt;p&gt;That explains why Blackfriday is behaving this way—we&#x27;re trying to make three
+bytes match one—but not why we&#x27;re failing to see this error during the test code
+we wrote.&lt;&#x2F;p&gt;
+&lt;p&gt;So what&#x27;s different? If we wander back up the call stack to find the point at
+which Hugo is calling the Blackfriday library (at &lt;code&gt;helpers&#x2F;content.go:347&lt;&#x2F;code&gt;) we
+find:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;blackfriday&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Markdown&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ctx&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Content&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;,
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;c&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;getHTMLRenderer&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;blackfriday&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;HTML_TOC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ctx&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;),
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;getMarkdownExtensions&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ctx&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;))
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;However, in my earlier example I was, as per the documentation, calling
+&lt;code&gt;blackfriday.MarkdownBasic()&lt;&#x2F;code&gt;. Great! So what&#x27;s the difference in those calls?&lt;&#x2F;p&gt;
+&lt;p&gt;In fact, if we try &lt;code&gt;blackfriday.MarkdownCommon()&lt;&#x2F;code&gt;, we can see the problem:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;package &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;main
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(
+    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;fmt&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
+    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;github.com&#x2F;russross&#x2F;blackfriday&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
+)
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;func &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;() {
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;output &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;blackfriday&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;MarkdownCommon&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;([]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;byte&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\n\n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;This is a sentence—*with an italicised aside*—before carrying on.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\n\n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;))
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;fmt&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Println&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;string&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;output&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;))
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This gives us:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;p&amp;gt;This is a sentence—*here&amp;#39;s an italicised aside*—and here&amp;#39;s the end.&amp;lt;&#x2F;p&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So the problem is something common to &lt;code&gt;blackfriday.MarkdownCommon()&lt;&#x2F;code&gt; and Hugo&#x27;s
+&lt;code&gt;blackfriday.Markdown()&lt;&#x2F;code&gt; call. The &lt;code&gt;MarkdownCommon()&lt;&#x2F;code&gt; function isn&#x27;t too long:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;func &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;MarkdownCommon&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;input &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;[]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;byte&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;) []&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;byte &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;{
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; set up the HTML renderer
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;renderer &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;HtmlRenderer&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;commonHtmlFlags&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;)
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;MarkdownOptions&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;input&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;renderer&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Options&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;{
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Extensions&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;commonExtensions&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;})
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Taking one look at the contents of the &lt;code&gt;commonExtensions&lt;&#x2F;code&gt; variable and, ladies
+and gentlemen, we have a winner: &lt;code&gt;EXTENSION_NO_INTRA_EMPHASIS&lt;&#x2F;code&gt;. It might not be
+immediately obvious but, according to the documentation:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Intra-word emphasis supression&lt;&#x2F;em&gt;. The _ character is commonly used inside
+words when discussing code, so having markdown interpret it as an emphasis
+command is usually the wrong thing. Blackfriday lets you treat all emphasis
+markers as normal characters when they occur inside a word.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;As Blackfriday isn&#x27;t recognising the em-dash as a punctuation character, it&#x27;s
+considering it part of the same word and, thanks to the above extension being
+active, not allowing emphasis in the middle of a word.&lt;&#x2F;p&gt;
+&lt;p&gt;Surely enough, once we disable that extension in our Hugo &lt;code&gt;config.toml&lt;&#x2F;code&gt; file,
+everything renders as intended:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;[blackfriday]
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;extensionsmask &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;= [&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;noIntraEmphasis&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;rtfm&quot;&gt;RTFM&lt;&#x2F;h2&gt;
+&lt;p&gt;It looks like this has already been flagged as an
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;russross&#x2F;blackfriday&#x2F;issues&#x2F;137&quot;&gt;issue&lt;&#x2F;a&gt; in GitHub.&lt;&#x2F;p&gt;
+&lt;p&gt;Several &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;russross&#x2F;blackfriday&#x2F;issues&#x2F;243&quot;&gt;times&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;In fact, it&#x27;s in the
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;russross&#x2F;blackfriday&#x2F;blob&#x2F;master&#x2F;README.md#todo&quot;&gt;README&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Perhaps some more reading before beginning this little exercise might have been
+beneficial but wasn&#x27;t it a learning experience? And isn&#x27;t that what &lt;em&gt;really&lt;&#x2F;em&gt;
+matters?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;back-to-daylight&quot;&gt;Back to Daylight&lt;&#x2F;h2&gt;
+&lt;p&gt;The aforementioned fix &lt;em&gt;does&lt;&#x2F;em&gt; work in the short term but we do run the risk of
+the very problem the extension was intended to remedy. A longer-term fix,
+however, is likely to involve a fairly extensive rewrite of parts of
+Blackfriday.&lt;&#x2F;p&gt;
+&lt;p&gt;There have been some great &lt;a href=&quot;https:&#x2F;&#x2F;blog.golang.org&#x2F;strings&quot;&gt;articles&lt;&#x2F;a&gt; written
+on how Go handles, strings, bytes and &lt;em&gt;runes&lt;&#x2F;em&gt;. It&#x27;s likely in this latter type
+that we&#x27;d find a solution—largely analogous to characters in ASCII but
+recognising multi-byte characters for Unicode.&lt;&#x2F;p&gt;
+&lt;p&gt;Making some crude changes to the functions we found earlier (&lt;code&gt;ispunct()&lt;&#x2F;code&gt;, for
+instance) such that they accept &lt;code&gt;rune&lt;&#x2F;code&gt; (or &lt;code&gt;[]rune&lt;&#x2F;code&gt;) data types does seem to
+fix the issue (I won&#x27;t include the details here; it involves a lot of me
+swearing at Go&#x27;s module management and how it handles local repositories) but
+there&#x27;s likely a bigger picture to consider with the rest of the codebase.&lt;&#x2F;p&gt;
+&lt;p&gt;So yeah. Go.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;d better start blogging.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>🦄 django-pwny</title>
+		<published>2018-08-29T00:00:00+00:00</published>
+		<updated>2018-08-29T00:00:00+00:00</updated>
+		<link href="https://blog.psypherpunk.io/django-pwny/" type="text/html"/>
+		<id>https://blog.psypherpunk.io/django-pwny/</id>
+		<content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Originally published at
+&lt;a href=&quot;https:&#x2F;&#x2F;www.thedatashed.co.uk&#x2F;2019&#x2F;02&#x2F;07&#x2F;django-pwny&#x2F;&quot;&gt;The Data Shed&lt;&#x2F;a&gt;.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Much as we might lament their continued use, passwords are an important part of
+modern life. A part that seems only to be increasing in ubiquity; as I sit here
+I can see at least half a dozen devices, from this laptop to my television,
+that each require an inordinate number of passwords to keep them from turning
+into little more than novelty paperweights.&lt;&#x2F;p&gt;
+&lt;p&gt;So let&#x27;s take an inexplicable foray into the fun we have managing our little
+&lt;em&gt;&amp;quot;memorized secrets&amp;quot;&lt;&#x2F;em&gt;...&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;nist-national-institute-of-standards-and-technology&quot;&gt;NIST: National Institute of Standards and Technology&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;nist-special-publication-800-63&quot;&gt;NIST Special Publication 800-63&lt;&#x2F;h3&gt;
+&lt;p&gt;I&#x27;m sure that many are intimately familiar with &lt;em&gt;NIST Special Publication
+800-63. Appendix A&lt;&#x2F;em&gt;, by Bill Burr. Well, if not the document itself then at
+least its consequences. Therein, amidst discussions of Claude Shannon&#x27;s work on
+entropy in information systems, he outlined what effectively became the
+de facto best practices for password generation for over a decade, asking us
+to consider:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;a minimum of 8 character passwords, selected by subscribers from an
+alphabet of 94 printable characters,&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;required subscribers to include at least one upper case letter, one lower
+case letter, one number and one special character, and;&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;Used a dictionary to prevent subscribers from including common words and
+prevented permutations of the username as a password.&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;He recently had this to say on the subject:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&amp;quot;Much of what I did I now regret. It just drives people bananas and they
+don&#x27;t pick good passwords no matter what you do.&amp;quot;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;He&#x27;s not wrong, is he.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;nist-special-publication-800-63b&quot;&gt;NIST Special Publication 800-63B&lt;&#x2F;h3&gt;
+&lt;p&gt;Released in June 2017, the latest NIST guidelines make some surprising (or
+perhaps not so surprising) changes. Certainly it&#x27;s a significantly lengthier
+document, given the weight of the task at hand and there&#x27;s a definite
+&lt;em&gt;formality&lt;&#x2F;em&gt; to the language this time around. Perhaps the biggest change is a
+more general recognition that passwords themselves aren&#x27;t enough.&lt;&#x2F;p&gt;
+&lt;p&gt;Some of the more significant things to note:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gone are the periodic password changes (&lt;em&gt;&amp;quot;Verifiers SHOULD NOT require
+memorized secrets to be changed arbitrarily (e.g., periodically)&amp;quot;&lt;&#x2F;em&gt;).&lt;&#x2F;li&gt;
+&lt;li&gt;Gone is the convoluted alphanumeric-song-and-dance (&lt;em&gt;&amp;quot;Verifiers SHOULD NOT
+impose other composition rules (e.g., requiring mixtures of different
+character types or prohibiting consecutively repeated characters) for
+memorized secrets&amp;quot;&lt;&#x2F;em&gt;).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Oh, and for all you sites that won&#x27;t let me paste my password: &lt;em&gt;&amp;quot;Verifiers
+SHOULD permit claimants to use &amp;quot;paste&amp;quot; functionality when entering a memorized
+secret&amp;quot;&lt;&#x2F;em&gt;!&lt;&#x2F;p&gt;
+&lt;p&gt;Most noteworthy of all (at least in the context of my writing this), there&#x27;s
+this little nugget from section 5.1.1.2:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;When processing requests to establish and change memorized secrets,
+verifiers SHALL compare the prospective secrets against a list that contains
+values known to be commonly-used, expected, or compromised. For example, the
+list MAY include, but is not limited to:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Passwords obtained from previous breach corpuses.&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;Dictionary words.&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;Repetitive or sequential characters (e.g. &#x27;aaaaaa&#x27;, &#x27;1234abcd&#x27;).&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;Context-specific words, such as the name of the service, the username,
+and derivatives thereof.&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;What&#x27;s that? &lt;em&gt;&amp;quot;Passwords obtained from previous breach corpuses&amp;quot;&lt;&#x2F;em&gt; you say?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;have-i-been-pwned&quot;&gt;&#x27;;--have i been pwned?&lt;&#x2F;h2&gt;
+&lt;p&gt;Launched in 2013, the site
+&lt;a href=&quot;https:&#x2F;&#x2F;haveibeenpwned.com&#x2F;&quot;&gt;&lt;em&gt;Have I Been Pwned?&lt;&#x2F;em&gt;&lt;&#x2F;a&gt; stores and processes data
+acquired from &lt;em&gt;breaches&lt;&#x2F;em&gt;, typically when said data are exposed publicly or
+some attempt is made to profit therefrom, in some from the Web&#x27;s more
+insidious locales. It&#x27;s a matter the site&#x27;s creator, Troy Hunt, can better
+&lt;a href=&quot;https:&#x2F;&#x2F;haveibeenpwned.com&#x2F;About&quot;&gt;explain&lt;&#x2F;a&gt; but the part most interesting to
+this particular topic is the fact that it exposes an
+&lt;a href=&quot;https:&#x2F;&#x2F;haveibeenpwned.com&#x2F;API&#x2F;v2&quot;&gt;API&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Specifically, the API allows us to send it a password and check whether it has
+appeared in a previous data breach, thus fulfilling the &lt;em&gt;&amp;quot;previous breach
+corpuses&amp;quot;&lt;&#x2F;em&gt; part of the NIST guidelines.&lt;&#x2F;p&gt;
+&lt;p&gt;Obviously, sending your password across the Web to &lt;em&gt;any&lt;&#x2F;em&gt; third-party service is
+Not A Very Good Thing To Do™ and thankfully the API&#x27;s design takes this into
+account: the password isn&#x27;t sent directly, we instead send a cryptographic hash
+derived from the password. Nor do we send the entire hash, instead passing only
+the first five characters.&lt;&#x2F;p&gt;
+&lt;p&gt;The data returned from the API comprise a list of matching hash suffixes and
+number of occurrences of that hash within the corpus.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;perhaps-a-demonstration&quot;&gt;Perhaps a demonstration?&lt;&#x2F;h3&gt;
+&lt;p&gt;Let&#x27;s say we have a password, a truly terrible password that no one would ever
+use:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BAD_PASSWORD&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;password&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;No one would ever be silly enough to use that, right? So, purely for
+demonstration purposes as &lt;em&gt;no one would ever have this password&lt;&#x2F;em&gt;, we calculate
+the SHA1:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; BAD_PASSWORD_HASH=$(
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BAD_PASSWORD&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;} | \
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sha1sum &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;| \
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cut -d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39; &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -f1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;| \
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;tr &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;[:lower:]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39; &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;[:upper:]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39;
+)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now we have a cryptographic hash of a password that &lt;em&gt;no one would ever use
+&#x27;cause that would be silly&lt;&#x2F;em&gt; and can send the first five characters to the the
+&lt;em&gt;Have I Been Pwned&lt;&#x2F;em&gt; API:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; curl &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https:&#x2F;&#x2F;api.pwnedpasswords.com&#x2F;range&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BAD_PASSWORD_HASH&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;003D68EB55068C33ACE09247EE4C639306B:3
+012C192B2F16F82EA0EB9EF18D9D539B0DD:1
+01330C689E5D64F660D6947A93AD634EF8F:1
+0198748F3315F40B1A102BF18EEA0194CD9:1
+01F9033B3C00C65DBFD6D1DC4D22918F5E9:2
+0424DB98C7A0846D2C6C75E697092A0CC3E:5
+047F229A81EE2747253F9897DA38946E241:1
+04A37A676E312CC7C4D236C93FBD992AA3C:5
+...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Well that&#x27;s a lot of results, 511 in fact (at time of writing). Of course, that
+doesn&#x27;t mean that our password is actually in that list—&lt;em&gt;because, of course, no
+one would ever use it&lt;&#x2F;em&gt;—but we can double-check by seeing if the suffix from our
+SHA1 is in the list:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; curl &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https:&#x2F;&#x2F;api.pwnedpasswords.com&#x2F;range&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BAD_PASSWORD_HASH&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; | \
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grep &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BAD_PASSWORD_HASH&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;:}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;1E4C9B93F3F0682250B6CF8331B7EE68FD8:3645804
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Oh. Oh dear. So &lt;code&gt;password&lt;&#x2F;code&gt; has been used as a password and found in no fewer
+than 3,645,804 known data breaches? Burr was right, &lt;em&gt;&amp;quot;they don&#x27;t pick good
+passwords no matter what you do&amp;quot;&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;django&quot;&gt;Django&lt;&#x2F;h2&gt;
+&lt;p&gt;To perhaps give a more practical demonstration of how this might be integrated
+into a functioning site, I&#x27;m going to look to
+&lt;a href=&quot;https:&#x2F;&#x2F;www.djangoproject.com&#x2F;&quot;&gt;Django&lt;&#x2F;a&gt;. Password validation was
+&lt;a href=&quot;https:&#x2F;&#x2F;docs.djangoproject.com&#x2F;en&#x2F;1.9&#x2F;topics&#x2F;auth&#x2F;passwords&#x2F;#module-django.contrib.auth.password_validation&quot;&gt;introduced in 1.9&lt;&#x2F;a&gt;
+and essentially comprises a list of &lt;em&gt;validators&lt;&#x2F;em&gt;—objects with a &lt;code&gt;validate()&lt;&#x2F;code&gt;
+method—into each of which is passed the incoming password.&lt;&#x2F;p&gt;
+&lt;p&gt;Of course, passwords aren&#x27;t stored so there are only two points at which you
+can do this:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;User registration, where potentially you can protect users from using at-risk
+passwords.&lt;&#x2F;li&gt;
+&lt;li&gt;Login, at which point you can merely warn users about the potential risk.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To perhaps put the escalating problem of password management into perspective,
+in version 1.9 (December 2015) Django&#x27;s &lt;code&gt;CommonPasswordValidator&lt;&#x2F;code&gt; contained a
+list of 1,000 commonly-used passwords. By version 2.1 (August 2018) it had
+grown to 20,000.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;pwny-validators-haveibeenpwnedvalidator&quot;&gt;&lt;code&gt;pwny.validators.HaveIBeenPwnedValidator&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Here&#x27;s a quick implementation, hereby dubbed &lt;code&gt;django-pwny&lt;&#x2F;code&gt; (and hence the
+ridiculous title of this post):&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;HaveIBeenPwnedValidator&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;:
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;validate&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;password&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;user&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;None&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;):
+        sha1 = hashlib.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sha1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;()
+        sha1.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;update&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(password.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;encode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;())
+        digest = sha1.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hexdigest&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;().&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;upper&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;()
+        prefix = digest[:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;]
+        url = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;f&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https:&#x2F;&#x2F;api.pwnedpasswords.com&#x2F;range&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;{prefix}&amp;quot;
+        r = requests.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;get&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(url, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;headers&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;={&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;User-Agent&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;django-pwny&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;})
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;suffix_count &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;r.text.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;splitlines&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;():
+            suffix, count = suffix_count.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;split&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;)
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;digest == &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;f&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;{prefix}{suffix}&amp;quot;:
+                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;raise &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ValidationError&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(
+                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;f&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Your password has been pwned &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;{count}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; times!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
+                )
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;get_help_text&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;):
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(
+            &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Your password should not appear in a list of compromised&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
+            &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;passwords.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
+        )
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;While I&#x27;m sure there&#x27;s room for improvement, added to the &lt;code&gt;settings.py&lt;&#x2F;code&gt; file,
+it should allow users to be alerted should their chosen password be a little
+too &lt;em&gt;common&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;AUTH_PASSWORD_VALIDATORS &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;= [
+    {
+        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;NAME&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;pwny.validators.HaveIBeenPwnedValidator&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;,
+    },
+]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So there it is: a way, in accordance with the latest NIST guidelines, to
+compare users&#x27; passwords against a substantial list of known breaches. Quite
+whether this particular recommendation will see widespread adoption, we&#x27;ll have
+to wait and see.&lt;&#x2F;p&gt;
+&lt;p&gt;Shortly after I drafted this, GitHub decided to
+&lt;a href=&quot;https:&#x2F;&#x2F;blog.github.com&#x2F;2018-07-31-new-improvements-and-best-practices-for-account-security-and-recoverability&#x2F;#enforcing-stronger-passwords&quot;&gt;get in on the act&lt;&#x2F;a&gt;.
+While that&#x27;s definitely a major voice in the industry following the guidelines,
+they&#x27;re definitely in the minority.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;nvlpubs.nist.gov&#x2F;nistpubs&#x2F;SpecialPublications&#x2F;NIST.SP.800-63b.pdf&quot;&gt;NIST Special Publication 800-63B&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;csrc.nist.gov&#x2F;CSRC&#x2F;media&#x2F;Publications&#x2F;sp&#x2F;800-63&#x2F;ver-10&#x2F;archive&#x2F;2004-06-30&#x2F;documents&#x2F;sp800-63-v1-0.pdf&quot;&gt;NIST Special Publication 800-63&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;Talk Python to Me&lt;&#x2F;em&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;talkpython.fm&#x2F;episodes&#x2F;show&#x2F;136&#x2F;secure-code-lessons-from-have-i-been-pwned&quot;&gt;Episode 136&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>🎉 Hello, World!</title>
+		<published>2018-08-15T00:00:00+00:00</published>
+		<updated>2018-08-15T00:00:00+00:00</updated>
+		<link href="https://blog.psypherpunk.io/hello-world/" type="text/html"/>
+		<id>https://blog.psypherpunk.io/hello-world/</id>
+		<content type="html">&lt;p&gt;Hello, World! 🎉&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

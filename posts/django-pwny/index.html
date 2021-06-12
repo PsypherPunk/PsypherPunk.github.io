@@ -10,7 +10,7 @@
  Much as we might lament their continued use, passwords are an important part of modern life. A part that seems only to be increasing in ubiquity; as I sit here I can see at least half a dozen devices, from this laptop to my television, that each require an inordinate number of passwords to keep them from turning into little more than novelty paperweights."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
-<link rel="canonical" href="https://psypherpunk.github.io/posts/django-pwny/" />
+<link rel="canonical" href="https://blog.psypherpunk.io/posts/django-pwny/" />
 
 
 <link rel="stylesheet" href="/assets/style.css">
@@ -29,9 +29,9 @@
 <meta name="twitter:title" content="django-pwny :: psypherpunk — " />
 <meta name="twitter:description" content="Originally published at The Data Shed.
  Much as we might lament their continued use, passwords are an important part of modern life. A part that seems only to be increasing in ubiquity; as I sit here I can see at least half a dozen devices, from this laptop to my television, that each require an inordinate number of passwords to keep them from turning into little more than novelty paperweights." />
-<meta name="twitter:site" content="https://psypherpunk.github.io/" />
+<meta name="twitter:site" content="https://blog.psypherpunk.io/" />
 <meta name="twitter:creator" content="" />
-<meta name="twitter:image" content="https://psypherpunk.github.io/img/default.jpg">
+<meta name="twitter:image" content="https://blog.psypherpunk.io/img/default.jpg">
 
 
 <meta property="og:locale" content="en" />
@@ -39,9 +39,9 @@
 <meta property="og:title" content="django-pwny :: psypherpunk — ">
 <meta property="og:description" content="Originally published at The Data Shed.
  Much as we might lament their continued use, passwords are an important part of modern life. A part that seems only to be increasing in ubiquity; as I sit here I can see at least half a dozen devices, from this laptop to my television, that each require an inordinate number of passwords to keep them from turning into little more than novelty paperweights." />
-<meta property="og:url" content="https://psypherpunk.github.io/posts/django-pwny/" />
+<meta property="og:url" content="https://blog.psypherpunk.io/posts/django-pwny/" />
 <meta property="og:site_name" content="django-pwny" />
-<meta property="og:image" content="https://psypherpunk.github.io/img/default.jpg">
+<meta property="og:image" content="https://blog.psypherpunk.io/img/default.jpg">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
 <meta property="article:section" content="python" />
@@ -58,7 +58,7 @@
 <div class="container">
   <header class="header">
   <span class="header__inner">
-    <a href="https://psypherpunk.github.io/" style="text-decoration: none;">
+    <a href="https://blog.psypherpunk.io/" style="text-decoration: none;">
   <div class="logo">
     
       <span class="logo__mark">></span>
@@ -86,7 +86,7 @@
   <div class="content">
     
   <div class="post">
-    <h2 class="post-title"><a href="https://psypherpunk.github.io/posts/django-pwny/">django-pwny</a></h2>
+    <h2 class="post-title"><a href="https://blog.psypherpunk.io/posts/django-pwny/">django-pwny</a></h2>
     <div class="post-meta">
       <span class="post-date">
         2018-08-29
@@ -97,11 +97,11 @@
     
       <span class="post-tags">
         
-          #<a href="https://psypherpunk.github.io/tags/django">django</a>&nbsp;
+          #<a href="https://blog.psypherpunk.io/tags/django">django</a>&nbsp;
         
-          #<a href="https://psypherpunk.github.io/tags/python">python</a>&nbsp;
+          #<a href="https://blog.psypherpunk.io/tags/python">python</a>&nbsp;
         
-          #<a href="https://psypherpunk.github.io/tags/security">security</a>&nbsp;
+          #<a href="https://blog.psypherpunk.io/tags/security">security</a>&nbsp;
         
       </span>
     
@@ -211,7 +211,7 @@ acquired from <em>breaches</em>, typically when said data are exposed publicly o
 ...
 </code></pre>
 
-<p>Well that&rsquo;s a lot of results, 511 in fact (at time of writing). Of course, that doesn&rsquo;t mean that our password is actually in that list—<em>because, of course, no one would ever use it</em>—but we can double-check by seeing if the suffix from our SHA1 is in the list:</p>
+<p>Well that&rsquo;s a lot of results, 511 in fact (at time of writing). Of course, that doesn&rsquo;t mean that our password is actually in that list—*because, of course, no one would ever use it*—but we can double-check by seeing if the suffix from our SHA1 is in the list:</p>
 
 <pre><code class="language-bash">$ curl &quot;https://api.pwnedpasswords.com/range/${BAD_PASSWORD_HASH:0:5}&quot; | \
     grep ${BAD_PASSWORD_HASH:5:}
@@ -222,7 +222,7 @@ acquired from <em>breaches</em>, typically when said data are exposed publicly o
 
 <h2 id="django">Django</h2>
 
-<p>To perhaps give a more practical demonstration of how this might be integrated into a functioning site, I&rsquo;m going to look to <a href="https://www.djangoproject.com/">Django</a>. Password validation was <a href="https://docs.djangoproject.com/en/1.9/topics/auth/passwords/#module-django.contrib.auth.password_validation">introduced in 1.9</a> and essentially comprises a list of <em>validators</em>—objects with a <code>validate()</code> method—into each of which is passed the incoming password.</p>
+<p>To perhaps give a more practical demonstration of how this might be integrated into a functioning site, I&rsquo;m going to look to <a href="https://www.djangoproject.com/">Django</a>. Password validation was <a href="https://docs.djangoproject.com/en/1.9/topics/auth/passwords/#module-django.contrib.auth.password_validation">introduced in 1.9</a> and essentially comprises a list of *validators*—objects with a <code>validate()</code> method—into each of which is passed the incoming password.</p>
 
 <p>Of course, passwords aren&rsquo;t stored so there are only two points at which you can do this:</p>
 
@@ -291,7 +291,7 @@ acquired from <em>breaches</em>, typically when said data are exposed publicly o
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="https://psypherpunk.github.io/posts/go-down-the-rabbit-hole/">
+              <a href="https://blog.psypherpunk.io/posts/go-down-the-rabbit-hole/">
                 <span class="button__icon">←</span>
                 <span class="button__text">Go Down the Rabbit Hole</span>
               </a>
@@ -299,7 +299,7 @@ acquired from <em>breaches</em>, typically when said data are exposed publicly o
           
           
             <span class="button next">
-              <a href="https://psypherpunk.github.io/posts/hello-world/">
+              <a href="https://blog.psypherpunk.io/posts/hello-world/">
                 <span class="button__text">Hello, World!</span>
                 <span class="button__icon">→</span>
               </a>

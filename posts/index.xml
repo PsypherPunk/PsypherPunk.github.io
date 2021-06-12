@@ -2,43 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on psypherpunk</title>
-    <link>https://psypherpunk.github.io/posts/</link>
+    <link>https://blog.psypherpunk.io/posts/</link>
     <description>Recent content in Posts on psypherpunk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>© 2019 PsypherPunk</copyright>
     <lastBuildDate>Wed, 13 Feb 2019 10:47:46 +0000</lastBuildDate>
     
-	<atom:link href="https://psypherpunk.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.psypherpunk.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Go Down the Rabbit Hole</title>
-      <link>https://psypherpunk.github.io/posts/go-down-the-rabbit-hole/</link>
+      <link>https://blog.psypherpunk.io/posts/go-down-the-rabbit-hole/</link>
       <pubDate>Wed, 13 Feb 2019 10:47:46 +0000</pubDate>
       
-      <guid>https://psypherpunk.github.io/posts/go-down-the-rabbit-hole/</guid>
+      <guid>https://blog.psypherpunk.io/posts/go-down-the-rabbit-hole/</guid>
       <description>I like a good em-dash. It&amp;rsquo;s delightfully versatile, easily taking the place of other, lesser punctuation marks.
 However, while writing my last blog post I ran into a problem. Originally written in Markdown, my beloved em-dash was causing all sorts of problems. Specifically, this paragraph:
- Well that&amp;rsquo;s a lot of results, 511 in fact (at time of writing). Of course, that doesn&amp;rsquo;t mean that our password is actually in that list—*because, of course, no one would ever use it*—but we can double-check by seeing if the suffix from our SHA1 is in the list:st:*</description>
+ Well that&amp;rsquo;s a lot of results, 511 in fact (at time of writing). Of course, that doesn&amp;rsquo;t mean that our password is actually in that list—*because, of course, no one would ever use it*—but we can double-check by seeing if the suffix from our SHA1 is in the list:</description>
     </item>
     
     <item>
       <title>django-pwny</title>
-      <link>https://psypherpunk.github.io/posts/django-pwny/</link>
+      <link>https://blog.psypherpunk.io/posts/django-pwny/</link>
       <pubDate>Wed, 29 Aug 2018 22:28:56 +0000</pubDate>
       
-      <guid>https://psypherpunk.github.io/posts/django-pwny/</guid>
+      <guid>https://blog.psypherpunk.io/posts/django-pwny/</guid>
       <description>Originally published at The Data Shed.
  Much as we might lament their continued use, passwords are an important part of modern life. A part that seems only to be increasing in ubiquity; as I sit here I can see at least half a dozen devices, from this laptop to my television, that each require an inordinate number of passwords to keep them from turning into little more than novelty paperweights.</description>
     </item>
     
     <item>
       <title>Hello, World!</title>
-      <link>https://psypherpunk.github.io/posts/hello-world/</link>
+      <link>https://blog.psypherpunk.io/posts/hello-world/</link>
       <pubDate>Wed, 15 Aug 2018 21:10:44 +0100</pubDate>
       
-      <guid>https://psypherpunk.github.io/posts/hello-world/</guid>
+      <guid>https://blog.psypherpunk.io/posts/hello-world/</guid>
       <description>Hello, World! 🎉</description>
     </item>
     

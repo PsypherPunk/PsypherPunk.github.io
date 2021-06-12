@@ -12,24 +12,26 @@
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="/">psypherpunk::blog</a>
-        <ul class="navbar-nav ms-md-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/tags"><i class="fa fa-hashtag"></i> tags</a>
-            </li>
-            <li class="nav-item">
-                <a target="_blank" rel="noopener" class="nav-link" href="https://github.com/psypherpunk"><i class="fa fa-github"></i> GitHub</a>
-            </li>
-            <li class="nav-item">
-                <a target="_blank" rel="noopener" class="nav-link" href="https://twitter.com/psypherpunk"><i class="fa fa-twitter"></i> Twitter</a>
-            </li>
-        </ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle links">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="navbar-nav ms-auto text-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="/tags"><i class="fa fa-hashtag"></i> tags</a>
+                </li>
+                <li class="nav-item">
+                    <a target="_blank" rel="noopener" class="nav-link" href="https://github.com/psypherpunk"><i class="fa fa-github"></i> GitHub</a>
+                </li>
+                <li class="nav-item">
+                    <a target="_blank" rel="noopener" class="nav-link" href="https://twitter.com/psypherpunk"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
-
-
-        <section class="section">
-            <div class="container">
-                
+        <main class="container">
+            
     <h1 class="title">
         💾 Jargon
     </h1>
@@ -160,14 +162,13 @@ select one of the entries at runtime and print it, à la <code>fortune</code>.</
                ||     ||
 </span></code></pre>
 
-            </div>
-        </section>
+        </main>
         
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-        <footer class="footer mt-auto py-3 bg-light">
-    <div class="container text-center">
-        <span class="text-muted">© 2021 PsypherPunk</span>
+        <footer class="footer py-1 bg-light">
+    <div class="container text-end">
+        <small class="text-muted">© 2021 PsypherPunk</small>
     </div>
 </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     </body>
 </html>

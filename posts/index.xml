@@ -7,13 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>© 2019 PsypherPunk</copyright>
-    <lastBuildDate>Wed, 13 Feb 2019 10:47:46 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Jun 2019 20:19:51 +0100</lastBuildDate>
     
 	<atom:link href="https://blog.psypherpunk.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Go Down the Rabbit Hole</title>
+      <title>🔓 Hack the Shed</title>
+      <link>https://blog.psypherpunk.io/posts/hack-the-shed/</link>
+      <pubDate>Wed, 19 Jun 2019 20:19:51 +0100</pubDate>
+      
+      <guid>https://blog.psypherpunk.io/posts/hack-the-shed/</guid>
+      <description>&amp;ldquo;Has anyone ever participated in a Capture-the-flag style hacking event? Does anyone fancy trying one?&amp;rdquo;
+ So, fairly innocuously, began what turned out to be a pretty interesting event.
+We recently ran a Capture the Flag (CTF) event at my workplace. For anyone unfamiliar with the concept (which, in all fairness, was the position of many of the participants), there are a few variants of CTF events but the essential premise is this: teams compete to find specific, intended vulnerabilities in a software application.</description>
+    </item>
+    
+    <item>
+      <title>🐛 Go Down the Rabbit Hole</title>
       <link>https://blog.psypherpunk.io/posts/go-down-the-rabbit-hole/</link>
       <pubDate>Wed, 13 Feb 2019 10:47:46 +0000</pubDate>
       
@@ -24,7 +35,7 @@ However, while writing my last blog post I ran into a problem. Originally writte
     </item>
     
     <item>
-      <title>django-pwny</title>
+      <title>🦄 django-pwny</title>
       <link>https://blog.psypherpunk.io/posts/django-pwny/</link>
       <pubDate>Wed, 29 Aug 2018 22:28:56 +0000</pubDate>
       
@@ -34,7 +45,7 @@ However, while writing my last blog post I ran into a problem. Originally writte
     </item>
     
     <item>
-      <title>Hello, World!</title>
+      <title>🎉 Hello, World!</title>
       <link>https://blog.psypherpunk.io/posts/hello-world/</link>
       <pubDate>Wed, 15 Aug 2018 21:10:44 +0100</pubDate>
       

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>© 2019 PsypherPunk</copyright>
-    <lastBuildDate>Wed, 29 Aug 2018 22:28:56 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Feb 2019 10:47:46 +0000</lastBuildDate>
     
 	<atom:link href="https://psypherpunk.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go Down the Rabbit Hole</title>
+      <link>https://psypherpunk.github.io/posts/go-down-the-rabbit-hole/</link>
+      <pubDate>Wed, 13 Feb 2019 10:47:46 +0000</pubDate>
+      
+      <guid>https://psypherpunk.github.io/posts/go-down-the-rabbit-hole/</guid>
+      <description>I like a good em-dash. It&amp;rsquo;s delightfully versatile, easily taking the place of other, lesser punctuation marks.
+However, while writing my last blog post I ran into a problem. Originally written in Markdown, my beloved em-dash was causing all sorts of problems. Specifically, this paragraph:
+ Well that&amp;rsquo;s a lot of results, 511 in fact (at time of writing). Of course, that doesn&amp;rsquo;t mean that our password is actually in that list—*because, of course, no one would ever use it*—but we can double-check by seeing if the suffix from our SHA1 is in the list:st:*</description>
+    </item>
     
     <item>
       <title>django-pwny</title>

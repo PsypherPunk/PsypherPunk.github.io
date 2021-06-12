@@ -171,7 +171,7 @@ a <em>&ldquo;a small online shop which sells - surprise! - fruit &amp; vegetable
 associated products&rdquo;</em>. In reality, it&rsquo;s an immensely well-crafted presentation
 of potential (and all-too-real) security vulnerabilities.</p>
 <p><img src="/img/juice-shop.png" alt="OWASP Juice Shop"></p>
-<h1 id="setup">Setup</h1>
+<h2 id="setup">Setup</h2>
 <p>Getting an instance of the Juice Shop up and running is straightforward
 enough—it&rsquo;s easily deployable as a
 <a href="https://elements.heroku.com/buttons/bkimminich/juice-shop">Heroku Element</a>,
@@ -181,7 +181,7 @@ or you can get it running with Docker in a single command:</p>
 hack away to your heart&rsquo;s content. However, I wanted to keep the competition
 private and although Heroku does allow for restricting access, it comes at a
 cost. No, I was going to run this myself…</p>
-<h2 id="deployment">Deployment</h2>
+<h3 id="deployment">Deployment</h3>
 <p>Although the documentation is available for
 <a href="https://bkimminich.gitbooks.io/pwning-owasp-juice-shop/content/">free</a> on the
 web, it&rsquo;s also available for purchase on
@@ -209,7 +209,7 @@ presented far too many problems during setup while the former &ldquo;just worked
 <li>The CTFd instance would run alongside them.</li>
 </ul>
 <p>Easy enough, right?</p>
-<h2 id="the-virtual-machine">The Virtual Machine</h2>
+<h3 id="the-virtual-machine">The Virtual Machine</h3>
 <p>I opted for a Virtual Machine hosted by DigitalOcean (sorry, a
 <a href="https://www.digitalocean.com/products/droplets/"><em>droplet</em></a>)
 running <a href="https://www.digitalocean.com/products/droplets/">Debian Stretch</a>
@@ -221,7 +221,7 @@ from anywhere except the office:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow from <span style="color:#e6db74">${</span>OFFICE_IP<span style="color:#e6db74">}</span> to ssh
-</code></pre></div><h2 id="the-juice-shops">The Juice Shop(s)</h2>
+</code></pre></div><h3 id="the-juice-shops">The Juice Shop(s)</h3>
 <p>It&rsquo;s worth noting that the Juice Shop does allow for
 <a href="https://bkimminich.gitbooks.io/pwning-owasp-juice-shop/content/part1/customization.html">customisation</a>—everything
 from logos to shop items and such. However, frankly I didn&rsquo;t want to detract
@@ -241,7 +241,7 @@ we launch a Docker container for each:</p>
 </span><span style="color:#ae81ff"></span>    bkimminich/juice-shop
 </code></pre></div><p>Note that each ran on a different port on the host (specified via
 <code>JUICE_SHOP_PORT</code> above) and we passed in the <code>CTF_KEY</code> value generated earlier.</p>
-<h2 id="ctfd">CTFd</h2>
+<h3 id="ctfd">CTFd</h3>
 <p>Running an instance of the scoreboard was, thankfully, not much more difficult:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/CTFd/CTFd.git
 cd CTFd/
@@ -263,7 +263,7 @@ single line was added, the instance was ready to launch.</p>
 services which are needed, the installation instructions for which are nicely
 <a href="https://docs.docker.com/compose/install/">straightforward</a>. Once installed…</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose up -d
-</code></pre></div><h2 id="dns">DNS</h2>
+</code></pre></div><h3 id="dns">DNS</h3>
 <p>With two Juice Shop instances and a scoreboard running, it was time to make
 them accessible.</p>
 <p>For reference, we had two teams: <em>Anomynoush</em> (an acknowledgement of the noted
@@ -281,7 +281,7 @@ whom your domain is registered. In this instance, the domain was registered
 with <a href="https://www.namecheap.com/">Namecheap</a> and their
 <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9776/2237/how-to-create-a-subdomain-for-my-domain">documentation</a>
 is decent enough, albeit specific to their interface.</p>
-<h2 id="https">HTTPS</h2>
+<h3 id="https">HTTPS</h3>
 <p>Naturally we&rsquo;re going to make everything accessible over HTTPS and that means
 <em>certificates</em>. And frankly, few services have done more for the proliferation
 of HTTPS than <a href="https://letsencrypt.org/"><em>Let&rsquo;s Encrypt</em></a>.</p>
@@ -295,57 +295,57 @@ sudo ufw delete allow <span style="color:#ae81ff">80</span>
 </code></pre></div><p>Yes, it involved temporarily opening up port 80 in the firewall, but it
 <em>worked</em>. Once that was repeated for each of the hostnames (represented by
 <code>CTF_HOST</code> above), I just needed something to route traffic to the containers.</p>
-<h2 id="nginx">NGINX</h2>
+<h3 id="nginx">NGINX</h3>
 <p><a href="https://www.nginx.com/">NGINX</a> is <em>awesome</em>. In this case, it&rsquo;s providing a
 reverse-proxy, handling routing of incoming requests to the corresponding
 containers.</p>
 <p>Again, DigitalOcean have excellent
 <a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04">documentation</a>
 on the setup but here&rsquo;s the setup for one of the Juice Shop instances:</p>
-<pre><code>server {
-    server_name h4ckt3hp14n3t.example.com;
-    listen 443 ssl http2;
-    client_max_body_size 1M;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#66d9ef">server</span> {
+    <span style="color:#f92672">server_name</span> <span style="color:#e6db74">h4ckt3hp14n3t.example.com</span>;
+    <span style="color:#f92672">listen</span> <span style="color:#ae81ff">443</span> <span style="color:#e6db74">ssl</span> <span style="color:#e6db74">http2</span>;
+    <span style="color:#f92672">client_max_body_size</span> <span style="color:#e6db74">1M</span>;
 
-    add_header X-Clacks-Overhead &quot;GNU Terry Pratchett&quot;;
-    add_header Strict-Transport-Security &quot;max-age=31536000; includeSubDomains; always&quot;;
-    add_header X-Frame-Options DENY;
-    add_header X-Content-Type-Options nosniff;
-    add_header X-XSS-Protection &quot;1; mode=block&quot;;
-    add_header Content-Security-Policy &quot;default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; img-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; connect-src 'self'&quot;;
+    <span style="color:#f92672">add_header</span> <span style="color:#e6db74">X-Clacks-Overhead</span> <span style="color:#e6db74">&#34;GNU</span> <span style="color:#e6db74">Terry</span> <span style="color:#e6db74">Pratchett&#34;</span>;
+    <span style="color:#f92672">add_header</span> <span style="color:#e6db74">Strict-Transport-Security</span> <span style="color:#e6db74">&#34;max-age=31536000</span>; <span style="color:#f92672">includeSubDomains</span>; <span style="color:#f92672">always&#34;</span>;
+    <span style="color:#f92672">add_header</span> <span style="color:#e6db74">X-Frame-Options</span> <span style="color:#e6db74">DENY</span>;
+    <span style="color:#f92672">add_header</span> <span style="color:#e6db74">X-Content-Type-Options</span> <span style="color:#e6db74">nosniff</span>;
+    <span style="color:#f92672">add_header</span> <span style="color:#e6db74">X-XSS-Protection</span> <span style="color:#e6db74">&#34;1</span>; <span style="color:#f92672">mode=block&#34;</span>;
+    <span style="color:#f92672">add_header</span> <span style="color:#e6db74">Content-Security-Policy</span> <span style="color:#e6db74">&#34;default-src</span> <span style="color:#e6db74">&#39;self&#39;</span>; <span style="color:#f92672">script-src</span> <span style="color:#e6db74">&#39;self&#39;</span> <span style="color:#e6db74">&#39;unsafe-inline&#39;</span> <span style="color:#e6db74">&#39;unsafe-eval&#39;</span> <span style="color:#e6db74">https://cdnjs.cloudflare.com</span>; <span style="color:#f92672">img-src</span> <span style="color:#e6db74">&#39;self&#39;</span>; <span style="color:#f92672">style-src</span> <span style="color:#e6db74">&#39;self&#39;</span> <span style="color:#e6db74">&#39;unsafe-inline&#39;</span>; <span style="color:#f92672">font-src</span> <span style="color:#e6db74">&#39;self&#39;</span>; <span style="color:#f92672">object-src</span> <span style="color:#e6db74">&#39;none&#39;</span>; <span style="color:#f92672">connect-src</span> <span style="color:#e6db74">&#39;self&#39;&#34;</span>;
 
-    location / {
-        proxy_set_header Host $http_host;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection &quot;upgrade&quot;;
-        proxy_redirect off;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Scheme $scheme;
-        proxy_set_header X-Forwarded-Protocol $scheme;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_connect_timeout 300s;
-        proxy_read_timeout 300s;
-        proxy_pass http://localhost:3001/;
+    <span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
+        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">Host</span> $http_host;
+        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">Upgrade</span> $http_upgrade;
+        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">Connection</span> <span style="color:#e6db74">&#34;upgrade&#34;</span>;
+        <span style="color:#f92672">proxy_redirect</span> <span style="color:#66d9ef">off</span>;
+        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Real-IP</span> $remote_addr;
+        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Scheme</span> $scheme;
+        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-Protocol</span> $scheme;
+        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-Proto</span> $scheme;
+        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-For</span> $proxy_add_x_forwarded_for;
+        <span style="color:#f92672">proxy_connect_timeout</span> <span style="color:#e6db74">300s</span>;
+        <span style="color:#f92672">proxy_read_timeout</span> <span style="color:#e6db74">300s</span>;
+        <span style="color:#f92672">proxy_pass</span> <span style="color:#e6db74">http://localhost:3001/</span>;
     }
 
-    ssl on;
-    ssl_certificate /etc/letsencrypt/live/h4ckt3hp14n3t.example.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/h4ckt3hp14n3t.example.com/privkey.pem;
+    <span style="color:#f92672">ssl</span> <span style="color:#66d9ef">on</span>;
+    <span style="color:#f92672">ssl_certificate</span> <span style="color:#e6db74">/etc/letsencrypt/live/h4ckt3hp14n3t.example.com/fullchain.pem</span>;
+    <span style="color:#f92672">ssl_certificate_key</span> <span style="color:#e6db74">/etc/letsencrypt/live/h4ckt3hp14n3t.example.com/privkey.pem</span>;
 
-    ssl_session_timeout 5m;
-    ssl_session_cache  shared:SSL:10m;
+    <span style="color:#f92672">ssl_session_timeout</span> <span style="color:#ae81ff">5m</span>;
+    <span style="color:#f92672">ssl_session_cache</span>  <span style="color:#e6db74">shared:SSL:10m</span>;
 
-    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
-    ssl_protocols TLSv1.2;
+    <span style="color:#f92672">ssl_ciphers</span> <span style="color:#e6db74">EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH</span>;
+    <span style="color:#f92672">ssl_protocols</span> <span style="color:#e6db74">TLSv1.2</span>;
 
-    ssl_prefer_server_ciphers on;
-    ssl_session_cache  builtin:1000  shared:SSL:10m;
-    ssl_session_tickets off;
-    ssl_stapling on;
-    ssl_stapling_verify on;
+    <span style="color:#f92672">ssl_prefer_server_ciphers</span> <span style="color:#66d9ef">on</span>;
+    <span style="color:#f92672">ssl_session_cache</span>  builtin:<span style="color:#ae81ff">1000</span>  <span style="color:#e6db74">shared:SSL:10m</span>;
+    <span style="color:#f92672">ssl_session_tickets</span> <span style="color:#66d9ef">off</span>;
+    <span style="color:#f92672">ssl_stapling</span> <span style="color:#66d9ef">on</span>;
+    <span style="color:#f92672">ssl_stapling_verify</span> <span style="color:#66d9ef">on</span>;
 }
-</code></pre><p>The important things to note here are:</p>
+</code></pre></div><p>The important things to note here are:</p>
 <ul>
 <li><code>server_name</code>: this is the hostname designated in the <a href="#dns">DNS</a> section
 earlier.</li>
@@ -358,8 +358,8 @@ created as part of the <a href="#https">HTTPS</a> section earlier.</li>
 <p>Once each of the sites are configured as per the above, the final step is to
 tell the firewall to allow incoming connections:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ufw allow from <span style="color:#e6db74">${</span>OFFICE_IP<span style="color:#e6db74">}</span> to any port https
-</code></pre></div><h2 id="setting-up-the-scoreboard">Setting Up the Scoreboard</h2>
-<h3 id="importing-the-flags">Importing the Flags</h3>
+</code></pre></div><h3 id="setting-up-the-scoreboard">Setting Up the Scoreboard</h3>
+<h4 id="importing-the-flags">Importing the Flags</h4>
 <p>The first stage in setting up the CTFd instance is adding the various flags
 from the Juice Shop. Thankfully, there&rsquo;s a nice tool,
 <a href="https://www.npmjs.com/package/juice-shop-ctf-cli">juice-shop-ctf-cli</a> created
@@ -375,7 +375,7 @@ file with the various options:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install -g juice-shop-ctf-cli
 juice-shop-ctf --config ctfd.yaml
 </code></pre></div><p>This creates a ZIP file which can be uploaded to CTFd&rsquo;s Admin. section.</p>
-<h3 id="users--teams">Users &amp; Teams</h3>
+<h4 id="users--teams">Users &amp; Teams</h4>
 <p>CTFd allows for running competitions in either a user- or team-based mode. I
 wanted people to be grouped into teams with each person having their own login.</p>
 <p>This is where I ran into issues.</p>
@@ -401,24 +401,24 @@ somewhere but I still couldn&rsquo;t put my newly-created users in newly-created
 teams. So I cheated. Using some of the credentials I&rsquo;d already minted for two
 of the users (one from each team), I created the team using that user. Then
 manually logged in as each user and joined the right team.</p>
-<h1 id="running-the-event">Running the Event</h1>
-<h2 id="beforehand">Beforehand</h2>
+<h2 id="running-the-event">Running the Event</h2>
+<h3 id="beforehand">Beforehand</h3>
 <p>On the day of the competition, I made a quick presentation earlier in the day,
 hoping to cover the running order and answer any queries (rather than doing
 everything 5 minutes before we started):</p>
-<pre><code>Start: 16:00
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Start: 16:00
 gather teams,
 grab beers
 
 Stop: 18:00
 present the trophy…
-</code></pre><p>Oh, and set the necessary ground-rules:</p>
-<pre><code>rules:
+</code></pre></div><p>Oh, and set the necessary ground-rules:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">rules:
 * don’t be a dick.
 * don’t break it.
 * have fun.
 * learn things.
-</code></pre><h2 id="competition-time">Competition Time</h2>
+</code></pre></div><h3 id="competition-time">Competition Time</h3>
 <p>For the actual event, the two teams were set up in their own area. I&rsquo;d asked
 that one person from each time stream to a nearby television; a separate TV was
 used to screen the scoreboard—I&rsquo;d hoped that we&rsquo;d get a few spectators and this

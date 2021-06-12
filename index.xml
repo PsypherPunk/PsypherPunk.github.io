@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>psypherpunk</title>
+    
+    
+    
     <link>https://blog.psypherpunk.io/</link>
     <description>Recent content on psypherpunk</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -18,8 +21,18 @@
       <pubDate>Mon, 18 Nov 2019 14:27:44 +0000</pubDate>
       
       <guid>https://blog.psypherpunk.io/posts/jargon/</guid>
-      <description>Jargon, do you grok it? I recently had a weird conversation on Teams (yes, we use Microsoft Teams at work; don&amp;rsquo;t judge us); triggered by a question in a recent Postman user-survey, it prompted a discussion around &amp;ldquo;unique terminology&amp;rdquo; in sofware development and to what degree each of us had been exposed.
-Not long after, I ended up referencing a phase of the moon issue with a colleague, with regard to some particularly erratic behaviour we were seeing.</description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          …or *&#34;Nostalgia and a free hour are a bad combination.&#34;*
+          
+        
+        </description>
     </item>
     
     <item>
@@ -28,9 +41,18 @@ Not long after, I ended up referencing a phase of the moon issue with a colleagu
       <pubDate>Wed, 19 Jun 2019 20:19:51 +0100</pubDate>
       
       <guid>https://blog.psypherpunk.io/posts/hack-the-shed/</guid>
-      <description>&amp;ldquo;Has anyone ever participated in a Capture-the-flag style hacking event? Does anyone fancy trying one?&amp;rdquo;
- So, fairly innocuously, began what turned out to be a pretty interesting event.
-We recently ran a Capture the Flag (CTF) event at my workplace. For anyone unfamiliar with the concept (which, in all fairness, was the position of many of the participants), there are a few variants of CTF events but the essential premise is this: teams compete to find specific, intended vulnerabilities in a software application.</description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Drink all the booze; hack all the things.
+          
+        
+        </description>
     </item>
     
     <item>
@@ -39,9 +61,18 @@ We recently ran a Capture the Flag (CTF) event at my workplace. For anyone unfam
       <pubDate>Wed, 13 Feb 2019 10:47:46 +0000</pubDate>
       
       <guid>https://blog.psypherpunk.io/posts/go-down-the-rabbit-hole/</guid>
-      <description>I like a good em-dash. It&amp;rsquo;s delightfully versatile, easily taking the place of other, lesser punctuation marks.
-However, while writing my last blog post I ran into a problem. Originally written in Markdown, my beloved em-dash was causing all sorts of problems. Specifically, this paragraph:
- Well that&amp;rsquo;s a lot of results, 511 in fact (at time of writing). Of course, that doesn&amp;rsquo;t mean that our password is actually in that list—*because, of course, no one would ever use it*—but we can double-check by seeing if the suffix from our SHA1 is in the list:</description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          On the em-dash, static site generators, Go and why you should really RTFM.
+          
+        
+        </description>
     </item>
     
     <item>
@@ -50,8 +81,18 @@ However, while writing my last blog post I ran into a problem. Originally writte
       <pubDate>Wed, 29 Aug 2018 22:28:56 +0000</pubDate>
       
       <guid>https://blog.psypherpunk.io/posts/django-pwny/</guid>
-      <description>Originally published at The Data Shed.
- Much as we might lament their continued use, passwords are an important part of modern life. A part that seems only to be increasing in ubiquity; as I sit here I can see at least half a dozen devices, from this laptop to my television, that each require an inordinate number of passwords to keep them from turning into little more than novelty paperweights.</description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          A look at password handling in light of changes to the NIST guidelines.
+          
+        
+        </description>
     </item>
     
     <item>
@@ -60,7 +101,18 @@ However, while writing my last blog post I ran into a problem. Originally writte
       <pubDate>Wed, 15 Aug 2018 21:10:44 +0100</pubDate>
       
       <guid>https://blog.psypherpunk.io/posts/hello-world/</guid>
-      <description>Hello, World! 🎉</description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Hello, World!
+          
+        
+        </description>
     </item>
     
   </channel>

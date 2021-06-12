@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on psypherpunk</title>
+    
+    
+    
     <link>https://blog.psypherpunk.io/tags/</link>
     <description>Recent content in Tags on psypherpunk</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -18,7 +21,18 @@
       <pubDate>Wed, 29 Aug 2018 22:28:56 +0000</pubDate>
       
       <guid>https://blog.psypherpunk.io/tags/django/</guid>
-      <description></description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
     </item>
     
     <item>
@@ -27,7 +41,18 @@
       <pubDate>Wed, 29 Aug 2018 22:28:56 +0000</pubDate>
       
       <guid>https://blog.psypherpunk.io/tags/python/</guid>
-      <description></description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
     </item>
     
     <item>
@@ -36,7 +61,18 @@
       <pubDate>Wed, 29 Aug 2018 22:28:56 +0000</pubDate>
       
       <guid>https://blog.psypherpunk.io/tags/security/</guid>
-      <description></description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
     </item>
     
   </channel>

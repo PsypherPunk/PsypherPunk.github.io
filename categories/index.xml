@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on psypherpunk</title>
+    
+    
+    
     <link>https://blog.psypherpunk.io/categories/</link>
     <description>Recent content in Categories on psypherpunk</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -18,7 +21,18 @@
       <pubDate>Wed, 29 Aug 2018 22:28:56 +0000</pubDate>
       
       <guid>https://blog.psypherpunk.io/categories/python/</guid>
-      <description></description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
     </item>
     
   </channel>

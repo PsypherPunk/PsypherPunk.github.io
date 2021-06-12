@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on psypherpunk</title>
+    
+    
+    
     <link>https://blog.psypherpunk.io/tags/python/</link>
     <description>Recent content in python on psypherpunk</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -18,8 +21,18 @@
       <pubDate>Wed, 29 Aug 2018 22:28:56 +0000</pubDate>
       
       <guid>https://blog.psypherpunk.io/posts/django-pwny/</guid>
-      <description>Originally published at The Data Shed.
- Much as we might lament their continued use, passwords are an important part of modern life. A part that seems only to be increasing in ubiquity; as I sit here I can see at least half a dozen devices, from this laptop to my television, that each require an inordinate number of passwords to keep them from turning into little more than novelty paperweights.</description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          A look at password handling in light of changes to the NIST guidelines.
+          
+        
+        </description>
     </item>
     
   </channel>

@@ -18,18 +18,53 @@
   </url>
   
   <url>
+    <loc>https://blog.psypherpunk.io/categories/</loc>
+    <lastmod>2019-06-19T20:19:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.psypherpunk.io/tags/owasp/</loc>
+    <lastmod>2019-06-19T20:19:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.psypherpunk.io/tags/security/</loc>
+    <lastmod>2019-06-19T20:19:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.psypherpunk.io/categories/security/</loc>
+    <lastmod>2019-06-19T20:19:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.psypherpunk.io/tags/</loc>
+    <lastmod>2019-06-19T20:19:51+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.psypherpunk.io/posts/hack-the-shed/</loc>
     <lastmod>2019-06-19T20:19:51+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.psypherpunk.io/posts/go-down-the-rabbit-hole/</loc>
+    <loc>https://blog.psypherpunk.io/tags/go/</loc>
     <lastmod>2019-02-13T10:47:46+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.psypherpunk.io/categories/</loc>
-    <lastmod>2018-08-29T22:28:56+00:00</lastmod>
+    <loc>https://blog.psypherpunk.io/categories/go/</loc>
+    <lastmod>2019-02-13T10:47:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.psypherpunk.io/tags/markdown/</loc>
+    <lastmod>2019-02-13T10:47:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.psypherpunk.io/posts/go-down-the-rabbit-hole/</loc>
+    <lastmod>2019-02-13T10:47:46+00:00</lastmod>
   </url>
   
   <url>
@@ -44,16 +79,6 @@
   
   <url>
     <loc>https://blog.psypherpunk.io/categories/python/</loc>
-    <lastmod>2018-08-29T22:28:56+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.psypherpunk.io/tags/security/</loc>
-    <lastmod>2018-08-29T22:28:56+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.psypherpunk.io/tags/</loc>
     <lastmod>2018-08-29T22:28:56+00:00</lastmod>
   </url>
   

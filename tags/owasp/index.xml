@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>security on psypherpunk</title>
+    <title>owasp on psypherpunk</title>
     
     
     
-    <link>https://blog.psypherpunk.io/tags/security/</link>
-    <description>Recent content in security on psypherpunk</description>
+    <link>https://blog.psypherpunk.io/tags/owasp/</link>
+    <description>Recent content in owasp on psypherpunk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>© 2019 PsypherPunk</copyright>
     <lastBuildDate>Wed, 19 Jun 2019 20:19:51 +0100</lastBuildDate>
     
-	<atom:link href="https://blog.psypherpunk.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.psypherpunk.io/tags/owasp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -30,26 +30,6 @@
         
         
           Drink all the booze; hack all the things.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>🦄 django-pwny</title>
-      <link>https://blog.psypherpunk.io/posts/django-pwny/</link>
-      <pubDate>Wed, 29 Aug 2018 22:28:56 +0000</pubDate>
-      
-      <guid>https://blog.psypherpunk.io/posts/django-pwny/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          A look at password handling in light of changes to the NIST guidelines.
           
         
         </description>
